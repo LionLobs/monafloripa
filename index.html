@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mona Floripa Fashion - Uma experiência exclusiva de moda à beira-mar. Evento premium na Praia da Joaquina.">
+    <title>Mona Floripa Fashion | Experiência Exclusiva</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --verde-petroleo: #012a30;
+            --verde-aquoso: #3fb5a8;
+            --off-white: #f6f3dd;
+            --dourado: #d4af37;
+            --preto: #000000;
+            --branco: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--verde-petroleo);
+            background-color: var(--off-white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+        }
+
+        /* Navegação */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(1, 42, 48, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 45px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--off-white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--verde-aquoso);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--verde-aquoso);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--off-white);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(1, 42, 48, 0.85) 0%, rgba(2, 74, 84, 0.85) 50%, rgba(63, 181, 168, 0.85) 100%), 
+                        url('images/evento_1.png') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><path d="M0 50 Q 25 30, 50 50 T 100 50" stroke="rgba(246,243,221,0.05)" fill="none" stroke-width="2"/></svg>');
+            opacity: 0.3;
+            animation: wave 20s linear infinite;
+        }
+
+        @keyframes wave {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(-100px) translateY(20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: var(--off-white);
+            max-width: 900px;
+            padding: 0 2rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            color: var(--verde-aquoso);
+            font-weight: 300;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .hero-date {
+            font-size: 1.4rem;
+            font-family: 'Cormorant Garamond', serif;
+            margin-bottom: 3rem;
+            color: var(--verde-aquoso);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: transparent;
+            color: var(--off-white);
+            border: 2px solid var(--verde-aquoso);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--verde-aquoso);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .cta-button:hover::before {
+            left: 0;
+        }
+
+        .cta-button:hover {
+            color: var(--verde-petroleo);
+        }
+
+        /* Sobre Section */
+        .sobre {
+            padding: 8rem 2rem;
+            background: var(--off-white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-subtitle {
+            font-size: 0.9rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--verde-aquoso);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--verde-petroleo);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--verde-petroleo);
+            opacity: 0.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .sobre-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .sobre-card {
+            background: var(--branco);
+            padding: 2.5rem;
+            border-radius: 0;
+            box-shadow: 0 10px 40px rgba(1, 42, 48, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .sobre-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(1, 42, 48, 0.15);
+        }
+
+        .sobre-card-icon {
+            font-size: 3rem;
+            color: var(--verde-aquoso);
+            margin-bottom: 1.5rem;
+        }
+
+        .sobre-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--verde-petroleo);
+        }
+
+        .sobre-card p {
+            line-height: 1.7;
+            color: var(--verde-petroleo);
+            opacity: 0.8;
+        }
+
+        /* Experiência Section */
+        .experiencia {
+            padding: 8rem 2rem;
+            background: linear-gradient(to bottom, var(--verde-petroleo), #024a54);
+            color: var(--off-white);
+        }
+
+        .roteiro-timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .roteiro-item {
+            background: rgba(246, 243, 221, 0.05);
+            padding: 3rem 2rem;
+            border-left: 4px solid var(--verde-aquoso);
+            transition: all 0.3s ease;
+        }
+
+        .roteiro-item:hover {
+            background: rgba(246, 243, 221, 0.1);
+            transform: translateX(10px);
+        }
+
+        .roteiro-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--verde-aquoso);
+            line-height: 1;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .roteiro-item h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--off-white);
+        }
+
+        .roteiro-item p {
+            font-size: 1rem;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        /* Identidade Visual Section */
+        .identidade-visual {
+            padding: 8rem 2rem;
+            background: var(--branco);
+        }
+
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .galeria-item {
+            background: var(--off-white);
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(1, 42, 48, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .galeria-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(1, 42, 48, 0.2);
+        }
+
+        .galeria-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .galeria-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Local Section */
+        .local {
+            padding: 8rem 2rem;
+            background: var(--off-white);
+        }
+
+        .local-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .local-image {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(63, 181, 168, 0.3), rgba(1, 42, 48, 0.3)), 
+                        url('images/page_2.png') center/cover no-repeat;
+            border-radius: 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(1, 42, 48, 0.2);
+        }
+
+        .local-info h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--verde-petroleo);
+        }
+
+        .local-info p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .local-details {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: var(--branco);
+            box-shadow: 0 10px 40px rgba(1, 42, 48, 0.08);
+        }
+
+        .local-details p {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .local-details strong {
+            color: var(--verde-aquoso);
+            min-width: 100px;
+        }
+
+        /* Parceiros Section */
+        .parceiros {
+            padding: 8rem 2rem;
+            background: var(--branco);
+        }
+
+        .parceiros-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .parceiro-card {
+            height: 150px;
+            background: var(--off-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .parceiro-card:hover {
+            border-color: var(--verde-aquoso);
+            transform: scale(1.05);
+        }
+
+        .parceiro-placeholder {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--verde-petroleo);
+            opacity: 0.5;
+        }
+
+        /* Contato Section */
+        .contato {
+            padding: 8rem 2rem;
+            background: var(--verde-petroleo);
+            color: var(--off-white);
+        }
+
+        .contato-content {
+            max-width: 600px;
+            margin: 3rem auto 0;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(246, 243, 221, 0.1);
+            border: 1px solid rgba(246, 243, 221, 0.3);
+            color: var(--off-white);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--verde-aquoso);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 1rem;
+            background: var(--verde-aquoso);
+            color: var(--verde-petroleo);
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background: var(--off-white);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(63, 181, 168, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            background: #000d10;
+            color: var(--off-white);
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: var(--off-white);
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--verde-aquoso);
+        }
+
+        .footer-text {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Mobile Responsivo */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: var(--verde-petroleo);
+                flex-direction: column;
+                padding: 5rem 2rem;
+                gap: 2rem;
+                transition: right 0.3s ease;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+                z-index: 1001;
+            }
+
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .local-content {
+                grid-template-columns: 1fr;
+            }
+
+            .local-image {
+                height: 300px;
+            }
+
+            .sobre-content {
+                grid-template-columns: 1fr;
+            }
+
+            .roteiro-timeline {
+                grid-template-columns: 1fr;
+            }
+
+            .roteiro-item {
+                padding: 2rem 1.5rem;
+            }
+
+            .galeria-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .parceiros-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .sobre, .experiencia, .identidade-visual, .local, .parceiros, .contato {
+                padding: 4rem 1rem;
+            }
+
+            .galeria-grid {
+                gap: 1rem;
+            }
+        }
+
+        /* Animações de Scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navegação -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="images/logo_clean.png" alt="Mona Floripa Fashion">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#experiencia">Experiência</a></li>
+                <li><a href="#identidade">Identidade</a></li>
+                <li><a href="#local">Local</a></li>
+                <li><a href="#parceiros">Parceiros</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-subtitle">Moda • Lifestyle • Networking Premium</p>
+            <h1 class="hero-title">FLORIPA<br>FASHION</h1>
+            <p class="hero-description">Uma experiência exclusiva de moda à beira-mar</p>
+            <p class="hero-date">12 de março • Praia da Joaquina</p>
+            <a href="#contato" class="cta-button">Solicite seu convite</a>
+        </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section class="sobre" id="sobre">
+        <div class="container">
+            <div class="section-header fade-in">
+                <p class="section-subtitle">Sobre o Evento</p>
+                <h2 class="section-title">Moda é Posicionamento</h2>
+                <p class="section-description">
+                    Moda é posicionamento, estratégia e construção de valor. Cada coleção, imagem e desfile comunica algo sobre a marca e impacta diretamente no seu faturamento.
+                </p>
+                <p class="section-description">
+                    O Mona Floripa Fashion nasceu justamente para conectar moda e mercado. É um evento pensado para marcas catarinenses que entendem que a conexão e visibilidade certa gera crescimento real.
+                </p>
+            </div>
+            <div class="sobre-content">
+                <div class="sobre-card fade-in">
+                    <div class="sobre-card-icon">✦</div>
+                    <h3>Conexão Real</h3>
+                    <p>Conectamos marcas de moda catarinenses com influenciadores, imprensa e um público estratégico que gera crescimento real e resultados mensuráveis.</p>
+                </div>
+                <div class="sobre-card fade-in">
+                    <div class="sobre-card-icon">◆</div>
+                    <h3>Visibilidade Estratégica</h3>
+                    <p>Cada marca terá destaque no desfile com 6 looks, stands personalizados e cobertura profissional completa do evento.</p>
+                </div>
+                <div class="sobre-card fade-in">
+                    <div class="sobre-card-icon">✧</div>
+                    <h3>Mercado & Negócios</h3>
+                    <p>Um evento focado em resultados: networking qualificado, posicionamento de marca e geração de oportunidades comerciais concretas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiência Section -->
+    <section class="experiencia" id="experiencia">
+        <div class="container">
+            <div class="section-header fade-in">
+                <p class="section-subtitle">Roteiro do Evento</p>
+                <h2 class="section-title">Três Momentos Únicos</h2>
+            </div>
+            <div class="roteiro-timeline">
+                <div class="roteiro-item fade-in">
+                    <div class="roteiro-number">01</div>
+                    <h3>Recepção</h3>
+                    <p>Experiência de tapete vermelho para os convidados, com fotos profissionais na chegada, degustações, stands com exposição das marcas patrocinadoras e/ou apoiadoras.</p>
+                </div>
+                <div class="roteiro-item fade-in">
+                    <div class="roteiro-number">02</div>
+                    <h3>Desfile</h3>
+                    <p>O desfile do Mona Floripa Fashion apresenta 6 looks por marca. Se o tempo permitir, teremos uma ação especial diretamente na areia da Praia da Joaquina.</p>
+                </div>
+                <div class="roteiro-item fade-in">
+                    <div class="roteiro-number">03</div>
+                    <h3>Sunset</h3>
+                    <p>O espaço do Mona Beach Club fica aberto para networking e consumação, em um momento único para conexões reais entre marcas, influencers e convidados exclusivos da moda catarinense.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Identidade Visual Section -->
+    <section class="identidade-visual" id="identidade">
+        <div class="container">
+            <div class="section-header fade-in">
+                <p class="section-subtitle">Identidade Visual</p>
+                <h2 class="section-title">Moodboard & Conceito</h2>
+            </div>
+            <div class="galeria-grid">
+                <div class="galeria-item fade-in">
+                    <img src="images/page_3.png" alt="Logo Mona Floripa Fashion">
+                </div>
+                <div class="galeria-item fade-in">
+                    <img src="images/page_4.png" alt="Paleta de Cores">
+                </div>
+                <div class="galeria-item fade-in">
+                    <img src="images/page_5.png" alt="Variações do Logo">
+                </div>
+                <div class="galeria-item fade-in">
+                    <img src="images/page_6.png" alt="Estampa">
+                </div>
+                <div class="galeria-item fade-in">
+                    <img src="images/page_7.png" alt="Posts e Comunicação">
+                </div>
+                <div class="galeria-item fade-in">
+                    <img src="images/page_8.png" alt="Aplicações da Marca">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Local Section -->
+    <section class="local" id="local">
+        <div class="container">
+            <div class="section-header fade-in">
+                <p class="section-subtitle">O Local</p>
+                <h2 class="section-title">Praia da Joaquina</h2>
+            </div>
+            <div class="local-content">
+                <div class="local-image fade-in"></div>
+                <div class="local-info fade-in">
+                    <h3>Um dos pontos mais icônicos de Florianópolis</h3>
+                    <p>
+                        A Praia da Joaquina é reconhecida mundialmente como um dos destinos mais emblemáticos do sul do Brasil. Com suas ondas perfeitas e paisagens deslumbrantes, oferece o cenário ideal para um evento de alto nível.
+                    </p>
+                    <p>
+                        O Mona Beach Club proporciona toda a infraestrutura necessária para criar uma experiência inesquecível, unindo a beleza natural com sofisticação e exclusividade.
+                    </p>
+                    <div class="local-details">
+                        <p><strong>Local:</strong> Mona Beach Club</p>
+                        <p><strong>Endereço:</strong> Praia da Joaquina, Florianópolis - SC</p>
+                        <p><strong>Data:</strong> 12 de março de 2026</p>
+                        <p><strong>Horário:</strong> A partir das 18h</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parceiros Section -->
+    <section class="parceiros" id="parceiros">
+        <div class="container">
+            <div class="section-header fade-in">
+                <p class="section-subtitle">Nossos Parceiros</p>
+                <h2 class="section-title">Marcas Premium</h2>
+                <p class="section-description">
+                    Conectamos marcas de alto padrão com um público seleto e influenciadores estratégicos, gerando visibilidade e autoridade no mercado.
+                </p>
+            </div>
+            <div class="parceiros-grid">
+                <div class="parceiro-card fade-in">
+                    <span class="parceiro-placeholder">Parceiro 1</span>
+                </div>
+                <div class="parceiro-card fade-in">
+                    <span class="parceiro-placeholder">Parceiro 2</span>
+                </div>
+                <div class="parceiro-card fade-in">
+                    <span class="parceiro-placeholder">Parceiro 3</span>
+                </div>
+                <div class="parceiro-card fade-in">
+                    <span class="parceiro-placeholder">Parceiro 4</span>
+                </div>
+                <div class="parceiro-card fade-in">
+                    <span class="parceiro-placeholder">Parceiro 5</span>
+                </div>
+                <div class="parceiro-card fade-in">
+                    <span class="parceiro-placeholder">Parceiro 6</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato Section -->
+    <section class="contato" id="contato">
+        <div class="container">
+            <div class="section-header fade-in">
+                <p class="section-subtitle">Entre em Contato</p>
+                <h2 class="section-title">Solicite Seu Convite</h2>
+                <p class="section-description">
+                    Interessado em participar ou patrocinar? Entre em contato conosco.
+                </p>
+            </div>
+            <div class="contato-content">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" id="telefone" name="telefone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="interesse">Interesse</label>
+                        <input type="text" id="interesse" name="interesse" placeholder="Ex: Participante, Patrocinador, Imprensa" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem</label>
+                        <textarea id="mensagem" name="mensagem" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Enviar Solicitação</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://instagram.com/monafloripafashion" target="_blank" aria-label="Instagram">📷</a>
+                <a href="mailto:monafloripafashion@gmail.com" aria-label="Email">✉️</a>
+                <a href="https://wa.me/5567992980699" target="_blank" aria-label="WhatsApp">📱</a>
+            </div>
+            <p class="footer-text"><strong>WWW.MONAFLORIPAFASHION.COM</strong></p>
+            <p class="footer-text">monafloripafashion@gmail.com | (67) 99298-0699</p>
+            <p class="footer-text">@monafloripafashion</p>
+            <p class="footer-text" style="margin-top: 2rem; opacity: 0.5;">© 2026 Mona Floripa Fashion. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Fechar menu ao clicar em link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Animação de Scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Form Submit
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Obrigado! Sua solicitação foi enviada. Entraremos em contato em breve.');
+            e.target.reset();
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
