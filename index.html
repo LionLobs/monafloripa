@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mona Floripa Fashion - Uma experiência exclusiva de moda à beira-mar. Evento premium na Praia da Joaquina.">
-    <title>Mona Floripa Fashion | Experiência Exclusiva</title>
+    <meta name="description" content="Mona Floripa Fashion - Moda é posicionamento, estratégia e construção de valor. Evento exclusivo na Praia da Joaquina.">
+    <meta name="keywords" content="moda, fashion, florianópolis, praia da joaquina, desfile, evento de moda, marcas catarinenses">
+    <title>Mona Floripa Fashion | O Palco da Moda Catarinense</title>
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         * {
             margin: 0;
@@ -20,7 +24,6 @@
             --verde-aquoso: #3fb5a8;
             --off-white: #f6f3dd;
             --dourado: #d4af37;
-            --preto: #000000;
             --branco: #ffffff;
         }
 
@@ -33,27 +36,33 @@
             color: var(--verde-petroleo);
             background-color: var(--off-white);
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
         h1, h2, h3, h4 {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 600;
+            line-height: 1.2;
         }
 
-        /* Navegação */
+        /* ========== NAVEGAÇÃO ========== */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
             background: rgba(1, 42, 48, 0.95);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             z-index: 1000;
             padding: 1rem 0;
             transition: all 0.3s ease;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
         }
 
         nav.scrolled {
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            background: rgba(1, 42, 48, 0.98);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            padding: 0.7rem 0;
         }
 
         .nav-container {
@@ -69,6 +78,12 @@
             display: flex;
             align-items: center;
             text-decoration: none;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 10px rgba(63, 181, 168, 0.5));
         }
 
         .logo img {
@@ -86,10 +101,10 @@
             color: var(--off-white);
             text-decoration: none;
             font-size: 0.9rem;
-            font-weight: 400;
+            font-weight: 500;
             letter-spacing: 0.05em;
             text-transform: uppercase;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
             position: relative;
         }
 
@@ -99,9 +114,10 @@
             bottom: -5px;
             left: 0;
             width: 0;
-            height: 1px;
+            height: 2px;
             background: var(--verde-aquoso);
             transition: width 0.3s ease;
+            box-shadow: 0 0 8px var(--verde-aquoso);
         }
 
         .nav-links a:hover::after {
@@ -110,6 +126,7 @@
 
         .nav-links a:hover {
             color: var(--verde-aquoso);
+            text-shadow: 0 0 10px rgba(63, 181, 168, 0.5);
         }
 
         .menu-toggle {
@@ -126,89 +143,118 @@
             transition: all 0.3s ease;
         }
 
-        /* Hero Section */
+        /* ========== HERO SECTION COM VÍDEO ========== */
         .hero {
             height: 100vh;
-            background: linear-gradient(135deg, rgba(1, 42, 48, 0.85) 0%, rgba(2, 74, 84, 0.85) 50%, rgba(63, 181, 168, 0.85) 100%), 
-                        url('images/evento_1.png') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             position: relative;
             overflow: hidden;
+            background: linear-gradient(135deg, rgba(1, 42, 48, 0.85), rgba(63, 181, 168, 0.75)), 
+                        url('images/evento_1.png') center/cover no-repeat;
         }
 
-        .hero::before {
-            content: '';
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            opacity: 0.45;
+            filter: saturate(1.3) hue-rotate(-10deg);
+        }
+
+        .hero-overlay {
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><path d="M0 50 Q 25 30, 50 50 T 100 50" stroke="rgba(246,243,221,0.05)" fill="none" stroke-width="2"/></svg>');
-            opacity: 0.3;
-            animation: wave 20s linear infinite;
-        }
-
-        @keyframes wave {
-            0% { transform: translateX(0) translateY(0); }
-            100% { transform: translateX(-100px) translateY(20px); }
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(1, 42, 48, 0.60) 0%, rgba(2, 74, 84, 0.55) 40%, rgba(63, 181, 168, 0.50) 100%);
+            z-index: 1;
         }
 
         .hero-content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             color: var(--off-white);
-            max-width: 900px;
+            max-width: 1000px;
             padding: 0 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero-subtitle {
             font-size: 1rem;
             letter-spacing: 0.3em;
             text-transform: uppercase;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             color: var(--verde-aquoso);
-            font-weight: 300;
+            font-weight: 400;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
         .hero-title {
-            font-size: clamp(3rem, 8vw, 6rem);
+            font-size: clamp(3rem, 8vw, 7rem);
             font-weight: 700;
             letter-spacing: 0.15em;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
+            margin-bottom: 2rem;
+            line-height: 1;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
         .hero-description {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 1rem;
             font-weight: 300;
-            line-height: 1.6;
+            line-height: 1.8;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
         }
 
         .hero-date {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-family: 'Cormorant Garamond', serif;
             margin-bottom: 3rem;
             color: var(--verde-aquoso);
+            font-weight: 500;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
         .cta-button {
             display: inline-block;
-            padding: 1rem 3rem;
+            padding: 1.2rem 3.5rem;
             background: transparent;
             color: var(--off-white);
             border: 2px solid var(--verde-aquoso);
             text-decoration: none;
             font-size: 1rem;
-            font-weight: 500;
+            font-weight: 600;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
+            z-index: 1;
+            box-shadow: 0 4px 15px rgba(63, 181, 168, 0.3);
         }
 
         .cta-button::before {
@@ -219,7 +265,7 @@
             width: 100%;
             height: 100%;
             background: var(--verde-aquoso);
-            transition: left 0.3s ease;
+            transition: left 0.4s ease;
             z-index: -1;
         }
 
@@ -229,14 +275,11 @@
 
         .cta-button:hover {
             color: var(--verde-petroleo);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(63, 181, 168, 0.5);
         }
 
-        /* Sobre Section */
-        .sobre {
-            padding: 8rem 2rem;
-            background: var(--off-white);
-        }
-
+        /* ========== SEÇÕES GERAIS ========== */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -253,21 +296,40 @@
             text-transform: uppercase;
             color: var(--verde-aquoso);
             margin-bottom: 1rem;
+            font-weight: 500;
         }
 
         .section-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
             color: var(--verde-petroleo);
             margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(1, 42, 48, 0.1);
         }
 
         .section-description {
             font-size: 1.1rem;
-            line-height: 1.8;
+            line-height: 1.9;
             color: var(--verde-petroleo);
-            opacity: 0.8;
-            max-width: 800px;
-            margin: 0 auto;
+            opacity: 0.85;
+            max-width: 850px;
+            margin: 0 auto 1.5rem;
+        }
+
+        /* ========== SOBRE SECTION ========== */
+        .sobre {
+            padding: 8rem 2rem;
+            background: var(--off-white);
+            position: relative;
+        }
+
+        .sobre::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--verde-aquoso), transparent);
         }
 
         .sobre-content {
@@ -279,221 +341,340 @@
 
         .sobre-card {
             background: var(--branco);
-            padding: 2.5rem;
-            border-radius: 0;
-            box-shadow: 0 10px 40px rgba(1, 42, 48, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 3rem 2.5rem;
+            box-shadow: 0 10px 40px rgba(1, 42, 48, 0.08),
+                        0 2px 10px rgba(1, 42, 48, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-top: 4px solid var(--verde-aquoso);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sobre-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(63, 181, 168, 0.05), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .sobre-card:hover::before {
+            left: 100%;
         }
 
         .sobre-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(1, 42, 48, 0.15);
+            transform: translateY(-15px);
+            box-shadow: 0 20px 60px rgba(1, 42, 48, 0.15),
+                        0 10px 30px rgba(63, 181, 168, 0.1);
         }
 
         .sobre-card-icon {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: var(--verde-aquoso);
             margin-bottom: 1.5rem;
+            line-height: 1;
+            filter: drop-shadow(0 2px 5px rgba(63, 181, 168, 0.3));
         }
 
         .sobre-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
+            font-size: 2rem;
+            margin-bottom: 1.2rem;
             color: var(--verde-petroleo);
         }
 
         .sobre-card p {
-            line-height: 1.7;
+            line-height: 1.8;
             color: var(--verde-petroleo);
-            opacity: 0.8;
+            opacity: 0.85;
+            font-size: 1rem;
         }
 
-        /* Experiência Section */
+        /* ========== EXPERIÊNCIA/ROTEIRO SECTION ========== */
         .experiencia {
             padding: 8rem 2rem;
-            background: linear-gradient(to bottom, var(--verde-petroleo), #024a54);
+            background: linear-gradient(135deg, var(--verde-petroleo) 0%, #024a54 100%);
             color: var(--off-white);
+            position: relative;
+        }
+
+        .experiencia::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><path d="M0 50 Q 25 30, 50 50 T 100 50" stroke="rgba(246,243,221,0.03)" fill="none" stroke-width="2"/></svg>');
+            opacity: 0.5;
         }
 
         .roteiro-timeline {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 3rem;
             margin-top: 4rem;
+            position: relative;
+            z-index: 1;
         }
 
         .roteiro-item {
             background: rgba(246, 243, 221, 0.05);
-            padding: 3rem 2rem;
-            border-left: 4px solid var(--verde-aquoso);
-            transition: all 0.3s ease;
+            padding: 3rem 2.5rem;
+            border-left: 5px solid var(--verde-aquoso);
+            transition: all 0.4s ease;
+            position: relative;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .roteiro-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 0;
+            width: 5px;
+            background: var(--dourado);
+            transition: height 0.4s ease;
+            box-shadow: 0 0 15px var(--dourado);
+        }
+
+        .roteiro-item:hover::before {
+            height: 100%;
         }
 
         .roteiro-item:hover {
             background: rgba(246, 243, 221, 0.1);
-            transform: translateX(10px);
+            transform: translateX(15px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
         }
 
         .roteiro-number {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 4rem;
+            font-size: 5rem;
             font-weight: 700;
             color: var(--verde-aquoso);
             line-height: 1;
-            margin-bottom: 1rem;
-            opacity: 0.8;
+            margin-bottom: 1.5rem;
+            opacity: 0.7;
+            text-shadow: 0 4px 15px rgba(63, 181, 168, 0.4);
         }
 
         .roteiro-item h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
             color: var(--off-white);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
         .roteiro-item p {
-            font-size: 1rem;
-            line-height: 1.7;
+            font-size: 1.05rem;
+            line-height: 1.8;
             opacity: 0.9;
         }
 
-        /* Identidade Visual Section */
-        .identidade-visual {
-            padding: 8rem 2rem;
-            background: var(--branco);
-        }
-
-        .galeria-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .galeria-item {
-            background: var(--off-white);
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(1, 42, 48, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .galeria-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(1, 42, 48, 0.2);
-        }
-
-        .galeria-item img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.3s ease;
-        }
-
-        .galeria-item:hover img {
-            transform: scale(1.05);
-        }
-
-        /* Local Section */
+        /* ========== LOCAL SECTION ========== */
         .local {
             padding: 8rem 2rem;
-            background: var(--off-white);
+            background: var(--branco);
+            position: relative;
+        }
+
+        .local::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--verde-aquoso), transparent);
         }
 
         .local-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 5rem;
             align-items: center;
-            margin-top: 3rem;
+            margin-top: 4rem;
         }
 
         .local-image {
             width: 100%;
-            height: 500px;
-            background: linear-gradient(135deg, rgba(63, 181, 168, 0.3), rgba(1, 42, 48, 0.3)), 
+            height: 550px;
+            background: linear-gradient(135deg, rgba(63, 181, 168, 0.2), rgba(1, 42, 48, 0.2)), 
                         url('images/page_2.png') center/cover no-repeat;
-            border-radius: 0;
+            box-shadow: 0 20px 60px rgba(1, 42, 48, 0.2),
+                        0 10px 30px rgba(1, 42, 48, 0.15),
+                        inset 0 0 100px rgba(1, 42, 48, 0.1);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(1, 42, 48, 0.2);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid rgba(63, 181, 168, 0.2);
+        }
+
+        .local-image::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+            transform: rotate(45deg);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .local-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 30px 80px rgba(1, 42, 48, 0.25),
+                        0 15px 40px rgba(63, 181, 168, 0.2);
         }
 
         .local-info h3 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
             color: var(--verde-petroleo);
+            text-shadow: 0 2px 10px rgba(1, 42, 48, 0.1);
         }
 
         .local-info p {
             font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1rem;
-            opacity: 0.8;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            opacity: 0.85;
         }
 
         .local-details {
-            margin-top: 2rem;
-            padding: 2rem;
-            background: var(--branco);
-            box-shadow: 0 10px 40px rgba(1, 42, 48, 0.08);
+            margin-top: 3rem;
+            padding: 2.5rem;
+            background: var(--off-white);
+            box-shadow: 0 10px 40px rgba(1, 42, 48, 0.08),
+                        0 2px 10px rgba(1, 42, 48, 0.05);
+            border-left: 4px solid var(--verde-aquoso);
+            transition: all 0.3s ease;
+        }
+
+        .local-details:hover {
+            box-shadow: 0 15px 50px rgba(1, 42, 48, 0.12),
+                        0 5px 20px rgba(63, 181, 168, 0.1);
+            transform: translateX(5px);
         }
 
         .local-details p {
             display: flex;
             align-items: center;
             gap: 1rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
         }
 
         .local-details strong {
             color: var(--verde-aquoso);
             min-width: 100px;
+            font-weight: 600;
+            text-shadow: 0 1px 3px rgba(63, 181, 168, 0.2);
         }
 
-        /* Parceiros Section */
+        /* ========== PARCEIROS SECTION ========== */
         .parceiros {
             padding: 8rem 2rem;
-            background: var(--branco);
+            background: var(--off-white);
+            position: relative;
+        }
+
+        .parceiros::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--verde-aquoso), transparent);
         }
 
         .parceiros-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 3rem;
             margin-top: 4rem;
         }
 
         .parceiro-card {
-            height: 150px;
-            background: var(--off-white);
+            height: 180px;
+            background: var(--branco);
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
             border: 2px solid transparent;
+            box-shadow: 0 5px 20px rgba(1, 42, 48, 0.08),
+                        0 2px 10px rgba(1, 42, 48, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .parceiro-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(63, 181, 168, 0.05), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .parceiro-card:hover::before {
+            left: 100%;
         }
 
         .parceiro-card:hover {
             border-color: var(--verde-aquoso);
-            transform: scale(1.05);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(1, 42, 48, 0.15),
+                        0 8px 20px rgba(63, 181, 168, 0.1);
         }
 
         .parceiro-placeholder {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--verde-petroleo);
-            opacity: 0.5;
+            opacity: 0.4;
+            text-align: center;
         }
 
-        /* Contato Section */
+        /* ========== CONTATO SECTION ========== */
         .contato {
             padding: 8rem 2rem;
             background: var(--verde-petroleo);
             color: var(--off-white);
+            position: relative;
+        }
+
+        .contato::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><path d="M0 50 Q 25 30, 50 50 T 100 50" stroke="rgba(246,243,221,0.03)" fill="none" stroke-width="2"/></svg>');
+            opacity: 0.3;
         }
 
         .contato-content {
-            max-width: 600px;
+            max-width: 650px;
             margin: 3rem auto 0;
+            position: relative;
+            z-index: 1;
         }
 
         .form-group {
@@ -502,62 +683,74 @@
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.7rem;
             font-size: 0.9rem;
             letter-spacing: 0.05em;
             text-transform: uppercase;
+            font-weight: 500;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 1rem;
+            padding: 1.2rem;
             background: rgba(246, 243, 221, 0.1);
             border: 1px solid rgba(246, 243, 221, 0.3);
             color: var(--off-white);
             font-family: 'Montserrat', sans-serif;
             font-size: 1rem;
-            transition: border-color 0.3s ease;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(246, 243, 221, 0.5);
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
             border-color: var(--verde-aquoso);
+            background: rgba(246, 243, 221, 0.15);
+            box-shadow: 0 0 20px rgba(63, 181, 168, 0.3),
+                        inset 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .form-group textarea {
             resize: vertical;
-            min-height: 150px;
+            min-height: 160px;
         }
 
         .submit-button {
             width: 100%;
-            padding: 1rem;
+            padding: 1.3rem;
             background: var(--verde-aquoso);
             color: var(--verde-petroleo);
             border: none;
             font-family: 'Montserrat', sans-serif;
             font-size: 1rem;
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: 0.1em;
             text-transform: uppercase;
             cursor: pointer;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(63, 181, 168, 0.3);
         }
 
         .submit-button:hover {
             background: var(--off-white);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(63, 181, 168, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(63, 181, 168, 0.4);
         }
 
-        /* Footer */
+        /* ========== FOOTER ========== */
         footer {
-            padding: 3rem 2rem;
+            padding: 4rem 2rem;
             background: #000d10;
             color: var(--off-white);
             text-align: center;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
         }
 
         .footer-content {
@@ -568,39 +761,50 @@
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
         }
 
         .social-links a {
             color: var(--off-white);
             text-decoration: none;
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.3));
         }
 
         .social-links a:hover {
             color: var(--verde-aquoso);
+            transform: scale(1.2) translateY(-5px);
+            filter: drop-shadow(0 5px 15px rgba(63, 181, 168, 0.5));
         }
 
         .footer-text {
-            font-size: 0.9rem;
-            opacity: 0.7;
+            font-size: 0.95rem;
+            opacity: 0.8;
+            margin-bottom: 0.8rem;
         }
 
-        /* Mobile Responsivo */
+        .footer-text strong {
+            color: var(--verde-aquoso);
+            font-weight: 600;
+        }
+
+        /* ========== RESPONSIVO MOBILE ========== */
         @media (max-width: 768px) {
             .nav-links {
                 position: fixed;
                 top: 0;
                 right: -100%;
-                width: 70%;
+                width: 75%;
                 height: 100vh;
-                background: var(--verde-petroleo);
+                background: rgba(1, 42, 48, 0.98);
+                backdrop-filter: blur(20px);
                 flex-direction: column;
                 padding: 5rem 2rem;
                 gap: 2rem;
-                transition: right 0.3s ease;
+                transition: right 0.4s ease;
+                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.4);
             }
 
             .nav-links.active {
@@ -625,15 +829,20 @@
             }
 
             .hero-title {
-                font-size: 3rem;
+                font-size: 3.5rem;
+            }
+
+            .hero-description {
+                font-size: 1.1rem;
             }
 
             .local-content {
                 grid-template-columns: 1fr;
+                gap: 3rem;
             }
 
             .local-image {
-                height: 300px;
+                height: 350px;
             }
 
             .sobre-content {
@@ -648,42 +857,48 @@
                 padding: 2rem 1.5rem;
             }
 
-            .galeria-grid {
-                grid-template-columns: 1fr;
-            }
-
             .parceiros-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
             }
         }
 
         @media (max-width: 480px) {
             .hero-title {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
 
             .section-title {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
 
             .nav-container {
                 padding: 0 1rem;
             }
 
-            .sobre, .experiencia, .identidade-visual, .local, .parceiros, .contato {
+            .sobre, .experiencia, .local, .parceiros, .contato {
                 padding: 4rem 1rem;
             }
 
-            .galeria-grid {
-                gap: 1rem;
+            .logo img {
+                height: 38px;
+            }
+
+            .sobre-card,
+            .local-details {
+                padding: 2rem 1.5rem;
+            }
+
+            .parceiro-card {
+                height: 140px;
             }
         }
 
-        /* Animações de Scroll */
+        /* ========== ANIMAÇÕES DE SCROLL ========== */
         .fade-in {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: translateY(40px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
         }
 
         .fade-in.visible {
@@ -693,16 +908,15 @@
     </style>
 </head>
 <body>
-    <!-- Navegação -->
+    <!-- ========== NAVEGAÇÃO ========== -->
     <nav id="navbar">
         <div class="nav-container">
-            <a href="" class="logo">
-                <img src="logo_clean.png" alt="Mona Floripa Fashion">
+            <a href="#" class="logo">
+                <img src="images/logo_clean.png" alt="Mona Floripa Fashion">
             </a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#experiencia">Experiência</a></li>
-                <li><a href="#identidade">Identidade</a></li>
+                <li><a href="#experiencia">Roteiro</a></li>
                 <li><a href="#local">Local</a></li>
                 <li><a href="#parceiros">Parceiros</a></li>
                 <li><a href="#contato">Contato</a></li>
@@ -715,18 +929,27 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- ========== HERO SECTION COM VÍDEO ========== -->
     <section class="hero">
+        <!-- Vídeo de fundo - Ondas do mar suaves -->
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="https://cdn.coverr.co/videos/coverr-calm-ocean-waves-8183/1080p.mp4" type="video/mp4">
+            <source src="https://cdn.coverr.co/videos/coverr-turquoise-ocean-water-4551/1080p.mp4" type="video/mp4">
+            <source src="https://cdn.coverr.co/videos/coverr-beautiful-ocean-waves-5533/1080p.mp4" type="video/mp4">
+        </video>
+        
+        <div class="hero-overlay"></div>
+        
         <div class="hero-content">
-            <p class="hero-subtitle">Moda • Lifestyle • Networking Premium</p>
+            <p class="hero-subtitle">Moda • Estratégia • Posicionamento</p>
             <h1 class="hero-title">FLORIPA<br>FASHION</h1>
-            <p class="hero-description">Uma experiência exclusiva de moda à beira-mar</p>
+            <p class="hero-description">O palco da moda catarinense à altura da verão</p>
             <p class="hero-date">12 de março • Praia da Joaquina</p>
             <a href="#contato" class="cta-button">Solicite seu convite</a>
         </div>
     </section>
 
-    <!-- Sobre Section -->
+    <!-- ========== SOBRE SECTION ========== -->
     <section class="sobre" id="sobre">
         <div class="container">
             <div class="section-header fade-in">
@@ -759,7 +982,7 @@
         </div>
     </section>
 
-    <!-- Experiência Section -->
+    <!-- ========== ROTEIRO SECTION ========== -->
     <section class="experiencia" id="experiencia">
         <div class="container">
             <div class="section-header fade-in">
@@ -786,37 +1009,7 @@
         </div>
     </section>
 
-    <!-- Identidade Visual Section -->
-    <section class="identidade-visual" id="identidade">
-        <div class="container">
-            <div class="section-header fade-in">
-                <p class="section-subtitle">Identidade Visual</p>
-                <h2 class="section-title">Moodboard & Conceito</h2>
-            </div>
-            <div class="galeria-grid">
-                <div class="galeria-item fade-in">
-                    <img src="page_3.png" alt="Logo Mona Floripa Fashion">
-                </div>
-                <div class="galeria-item fade-in">
-                    <img src="page_4.png" alt="Paleta de Cores">
-                </div>
-                <div class="galeria-item fade-in">
-                    <img src="page_5.png" alt="Variações do Logo">
-                </div>
-                <div class="galeria-item fade-in">
-                    <img src="page_6.png" alt="Estampa">
-                </div>
-                <div class="galeria-item fade-in">
-                    <img src="page_7.png" alt="Posts e Comunicação">
-                </div>
-                <div class="galeria-item fade-in">
-                    <img src="page_8.png" alt="Aplicações da Marca">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Local Section -->
+    <!-- ========== LOCAL SECTION ========== -->
     <section class="local" id="local">
         <div class="container">
             <div class="section-header fade-in">
@@ -844,47 +1037,47 @@
         </div>
     </section>
 
-    <!-- Parceiros Section -->
+    <!-- ========== PARCEIROS SECTION ========== -->
     <section class="parceiros" id="parceiros">
         <div class="container">
             <div class="section-header fade-in">
                 <p class="section-subtitle">Nossos Parceiros</p>
-                <h2 class="section-title">Marcas Premium</h2>
+                <h2 class="section-title">Marcas Catarinenses</h2>
                 <p class="section-description">
-                    Conectamos marcas de alto padrão com um público seleto e influenciadores estratégicos, gerando visibilidade e autoridade no mercado.
+                    Conectamos marcas de moda que entendem posicionamento como estratégia de crescimento com um público qualificado e influenciadores estratégicos.
                 </p>
             </div>
             <div class="parceiros-grid">
                 <div class="parceiro-card fade-in">
-                    <span class="parceiro-placeholder">Parceiro 1</span>
+                    <span class="parceiro-placeholder">Sua Marca Aqui</span>
                 </div>
                 <div class="parceiro-card fade-in">
-                    <span class="parceiro-placeholder">Parceiro 2</span>
+                    <span class="parceiro-placeholder">Sua Marca Aqui</span>
                 </div>
                 <div class="parceiro-card fade-in">
-                    <span class="parceiro-placeholder">Parceiro 3</span>
+                    <span class="parceiro-placeholder">Sua Marca Aqui</span>
                 </div>
                 <div class="parceiro-card fade-in">
-                    <span class="parceiro-placeholder">Parceiro 4</span>
+                    <span class="parceiro-placeholder">Sua Marca Aqui</span>
                 </div>
                 <div class="parceiro-card fade-in">
-                    <span class="parceiro-placeholder">Parceiro 5</span>
+                    <span class="parceiro-placeholder">Sua Marca Aqui</span>
                 </div>
                 <div class="parceiro-card fade-in">
-                    <span class="parceiro-placeholder">Parceiro 6</span>
+                    <span class="parceiro-placeholder">Sua Marca Aqui</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contato Section -->
+    <!-- ========== CONTATO SECTION ========== -->
     <section class="contato" id="contato">
         <div class="container">
             <div class="section-header fade-in">
                 <p class="section-subtitle">Entre em Contato</p>
                 <h2 class="section-title">Solicite Seu Convite</h2>
                 <p class="section-description">
-                    Interessado em participar ou patrocinar? Entre em contato conosco.
+                    Se você, assim como nós, vê a moda como negócio, o seu lugar é aqui! Entre em contato com a equipe do Mona Floripa Fashion.
                 </p>
             </div>
             <div class="contato-content">
@@ -903,7 +1096,7 @@
                     </div>
                     <div class="form-group">
                         <label for="interesse">Interesse</label>
-                        <input type="text" id="interesse" name="interesse" placeholder="Ex: Participante, Patrocinador, Imprensa" required>
+                        <input type="text" id="interesse" name="interesse" placeholder="Ex: Marca, Patrocinador, Imprensa, Influenciador" required>
                     </div>
                     <div class="form-group">
                         <label for="mensagem">Mensagem</label>
@@ -915,23 +1108,24 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ========== FOOTER ========== -->
     <footer>
         <div class="footer-content">
             <div class="social-links">
-                <a href="https://instagram.com/monafloripafashion" target="_blank" aria-label="Instagram">📷</a>
+                <a href="https://instagram.com/monafloripafashion" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
                 <a href="mailto:monafloripafashion@gmail.com" aria-label="Email">✉️</a>
-                <a href="https://wa.me/5567992980699" target="_blank" aria-label="WhatsApp">📱</a>
+                <a href="https://wa.me/5567992980699" target="_blank" rel="noopener" aria-label="WhatsApp">📱</a>
             </div>
             <p class="footer-text"><strong>WWW.MONAFLORIPAFASHION.COM</strong></p>
             <p class="footer-text">monafloripafashion@gmail.com | (67) 99298-0699</p>
             <p class="footer-text">@monafloripafashion</p>
-            <p class="footer-text" style="margin-top: 2rem; opacity: 0.5;">© 2026 Criado por LionLobs. Todos os direitos reservados.</p>
+            <p class="footer-text" style="margin-top: 2rem; opacity: 0.5;">© 2026 Mona Floripa Fashion. Todos os direitos reservados.</p>
         </div>
     </footer>
 
+    <!-- ========== SCRIPTS ========== -->
     <script>
-        // Menu Toggle
+        // Menu Toggle Mobile
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
 
@@ -950,18 +1144,24 @@
 
         // Navbar Scroll Effect
         const navbar = document.getElementById('navbar');
+        let lastScroll = 0;
+
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
             }
+            
+            lastScroll = currentScroll;
         });
 
-        // Animação de Scroll
+        // Animação de Scroll (Fade In)
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
+            threshold: 0.15,
+            rootMargin: '0px 0px -80px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -977,7 +1177,9 @@
         // Form Submit
         document.getElementById('contactForm').addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('Obrigado! Sua solicitação foi enviada. Entraremos em contato em breve.');
+            
+            // Aqui você pode integrar com um serviço de email (EmailJS, Formspree, etc)
+            alert('Obrigado pelo seu interesse! Entraremos em contato em breve.');
             e.target.reset();
         });
 
@@ -987,15 +1189,33 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
                     });
                 }
             });
         });
+
+        // Preload hero video com tratamento de erro
+        const heroVideo = document.querySelector('.hero-video');
+        if (heroVideo) {
+            heroVideo.load();
+            
+            // Tratamento de erro de carregamento
+            heroVideo.addEventListener('error', function() {
+                console.warn('Vídeo falhou ao carregar. Usando imagem de fallback.');
+                heroVideo.style.display = 'none';
+            });
+            
+            // Verificar carregamento após 5 segundos
+            setTimeout(() => {
+                if (heroVideo.readyState === 0) {
+                    console.warn('Vídeo não carregou. Possível problema de rede.');
+                }
+            }, 5000);
+        }
     </script>
 </body>
-
 </html>
-
