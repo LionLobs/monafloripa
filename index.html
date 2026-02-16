@@ -411,6 +411,16 @@
             opacity: 0.5;
         }
 
+        .experiencia .section-subtitle {
+            color: var(--verde-aquoso);
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .experiencia .section-title {
+            color: var(--off-white);
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+        }
+
         .roteiro-timeline {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -670,6 +680,20 @@
             opacity: 0.3;
         }
 
+        .contato .section-subtitle {
+            color: var(--verde-aquoso);
+        }
+
+        .contato .section-title {
+            color: var(--off-white);
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .contato .section-description {
+            color: var(--off-white);
+            opacity: 0.95;
+        }
+
         .contato-content {
             max-width: 650px;
             margin: 3rem auto 0;
@@ -729,19 +753,25 @@
             color: var(--verde-petroleo);
             border: none;
             font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
+            font-size: 1.05rem;
             font-weight: 700;
             letter-spacing: 0.1em;
             text-transform: uppercase;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(63, 181, 168, 0.3);
+            box-shadow: 0 4px 15px rgba(63, 181, 168, 0.4);
         }
 
         .submit-button:hover {
             background: var(--off-white);
+            color: var(--verde-petroleo);
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(63, 181, 168, 0.4);
+            box-shadow: 0 10px 30px rgba(63, 181, 168, 0.5);
+        }
+
+        .submit-button:active {
+            transform: translateY(-1px);
+            box-shadow: 0 5px 20px rgba(63, 181, 168, 0.4);
         }
 
         /* ========== FOOTER ========== */
@@ -945,7 +975,7 @@
             <h1 class="hero-title">FLORIPA<br>FASHION</h1>
             <p class="hero-description">O palco da moda catarinense à altura da verão</p>
             <p class="hero-date">12 de março • Praia da Joaquina</p>
-            <a href="#contato" class="cta-button">Solicite seu convite</a>
+            <a href="#contato" class="cta-button">Garanta Sua Presença</a>
         </div>
     </section>
 
@@ -1075,9 +1105,9 @@
         <div class="container">
             <div class="section-header fade-in">
                 <p class="section-subtitle">Entre em Contato</p>
-                <h2 class="section-title">Solicite Seu Convite</h2>
+                <h2 class="section-title">Faça Parte do Evento</h2>
                 <p class="section-description">
-                    Se você, assim como nós, vê a moda como negócio, o seu lugar é aqui! Entre em contato com a equipe do Mona Floripa Fashion.
+                    Se você, assim como nós, vê a moda como negócio, o seu lugar é aqui! Entre em contato com a equipe do Mona Floripa Fashion para garantir sua participação.
                 </p>
             </div>
             <div class="contato-content">
@@ -1102,7 +1132,7 @@
                         <label for="mensagem">Mensagem</label>
                         <textarea id="mensagem" name="mensagem" required></textarea>
                     </div>
-                    <button type="submit" class="submit-button">Enviar Solicitação</button>
+                    <button type="submit" class="submit-button">Quero Participar</button>
                 </form>
             </div>
         </div>
@@ -1119,7 +1149,7 @@
             <p class="footer-text"><strong>WWW.MONAFLORIPAFASHION.COM</strong></p>
             <p class="footer-text">monafloripafashion@gmail.com | (67) 99298-0699</p>
             <p class="footer-text">@monafloripafashion</p>
-            <p class="footer-text" style="margin-top: 2rem; opacity: 0.5;">© 2026 Criado por LionLobs. Todos os direitos reservados.</p>
+            <p class="footer-text" style="margin-top: 2rem; opacity: 0.5;">© 2026 Mona Floripa Fashion. Todos os direitos reservados.</p>
         </div>
     </footer>
 
