@@ -199,85 +199,117 @@
                 transform: translateY(0);
             }
         }
+=======================================================
+      .hero-content {
+    position: relative;
+    z-index: 2;
+    color: var(--off-white);
+    max-width: 1000px;
+    padding: 0 2rem;
+    animation: fadeInUp 1s ease;
+    /* Adicionado para garantir alinhamento central */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+}
 
-        .hero-subtitle {
-            font-size: 1rem;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-            color: var(--verde-aquoso);
-            font-weight: 400;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-subtitle {
+    font-size: 1rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem; /* Reduzido de 1.5rem */
+    color: var(--verde-aquoso);
+    font-weight: 400;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
 .hero-title {
-    margin: 20px 0; /* Espaçamento para manter a altura original */
+    margin: 10px 0; /* Reduzido para aproximar a logo dos textos */
     display: flex;
     justify-content: center;
     align-items: center;
+    line-height: 0;
 }
 
 .hero-logo {
-    max-width: 300px; /* Ajuste este valor conforme o desejado */
-    width: 100%;      /* Garante que seja responsivo em telas menores */
-    height: auto;     /* Mantém a proporção da imagem */
+    max-width: 380px; /* Tamanho ideal para desktop */
+    width: 100%;
+    height: auto;
     display: block;
 }
 
-/* Ajuste opcional para mobile */
+.hero-description {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem; /* Reduzido para aproximar da logo */
+    font-weight: 300;
+    line-height: 1.4; /* Reduzido para evitar espaços entre linhas do parágrafo */
+    max-width: 800px;
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+}
+
+.hero-date {
+    font-size: 1.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    margin-bottom: 2rem; /* Reduzido de 3rem para o botão subir um pouco */
+    color: var(--verde-aquoso);
+    font-weight: 500;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1.2rem 3.5rem;
+    background: transparent;
+    color: var(--off-white);
+    border: 2px solid var(--verde-aquoso);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 0 4px 15px rgba(63, 181, 168, 0.3);
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--verde-aquoso);
+    transition: left 0.4s ease;
+    z-index: -1;
+}
+
+/* Ajuste Responsivo para Celular */
 @media (max-width: 768px) {
     .hero-logo {
-        max-width: 220px; 
+        max-width: 300px; /* Logo um pouco menor no mobile para não ocupar a tela toda */
+    }
+    .hero-subtitle {
+        font-size: 0.8rem;
+    }
+    .hero-description {
+        font-size: 1.1rem;
     }
 }
-        .hero-description {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            font-weight: 300;
-            line-height: 1.8;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
-        }
-
-        .hero-date {
-            font-size: 1.5rem;
-            font-family: 'Cormorant Garamond', serif;
-            margin-bottom: 3rem;
-            color: var(--verde-aquoso);
-            font-weight: 500;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1.2rem 3.5rem;
-            background: transparent;
-            color: var(--off-white);
-            border: 2px solid var(--verde-aquoso);
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            box-shadow: 0 4px 15px rgba(63, 181, 168, 0.3);
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--verde-aquoso);
-            transition: left 0.4s ease;
-            z-index: -1;
-        }
 
         .cta-button:hover::before {
             left: 0;
@@ -979,7 +1011,8 @@
         </video>
         
         <div class="hero-overlay"></div>
-        <div class="hero-content">
+
+       <div class="hero-content">
     <p class="hero-subtitle">Moda • Estratégia • Posicionamento</p>
     
     <h1 class="hero-title">
@@ -988,8 +1021,10 @@
 
     <p class="hero-description">O palco da moda catarinense à altura da Mona</p>
     <p class="hero-date">12 de março • Praia da Joaquina</p>
+    
     <a href="#contato" class="cta-button">Garanta Sua Presença</a>
 </div>
+
     </section>
 
     <!-- ========== SOBRE SECTION ========== -->
