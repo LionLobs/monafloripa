@@ -635,30 +635,31 @@
     font-weight: 600;
     text-shadow: 0 1px 3px rgba(63, 181, 168, 0.2);
 }
-
-/* ========== AJUSTE MOBILE (RESOLVE O CORTE) ========== */
+/* ========== AJUSTE MOBILE (IMAGEM SEM ZOOM) ========== */
 @media (max-width: 768px) {
     .local {
         padding: 4rem 1.5rem;
     }
 
     .local-content {
-        grid-template-columns: 1fr; /* Empilha o conteúdo */
+        display: grid;
+        grid-template-columns: 1fr;
         gap: 3rem;
     }
 
     .local-image {
-        /* 1. Removemos a altura fixa que corta a foto */
-        height: auto; 
-        /* 2. Mantemos a proporção da foto (ajuste o ratio se for quadrada) */
-        aspect-ratio: 16 / 9; 
-        /* 3. Largura menor conforme solicitado */
-        width: 85%; 
-        margin: 0 auto; 
-        /* 4. CONTAIN: Garante que 100% da imagem apareça sem cortes */
-        background: url('joaquina.png') center/contain no-repeat;
-        /* Removemos sombras internas que podem escurecer a foto no mobile */
+        width: 100%;
+        max-width: 480px; /* controla o tamanho no mobile */
+        margin: 0 auto;
+    }
+
+    .local-image img {
+        width: 100%;
+        height: auto;          /* ESSENCIAL */
+        display: block;
+        border-radius: 12px;
         box-shadow: 0 15px 40px rgba(1, 42, 48, 0.15);
+        object-fit: contain;   /* garante zero corte */
     }
 
     .local-info h3 {
