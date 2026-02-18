@@ -1467,30 +1467,36 @@
                 }
             }, 5000);
         }
+        
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('contactForm');
 
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+    if (!form) return; // segurança extra
 
-    const nome = document.getElementById('nome').value;
-    const telefone = document.getElementById('telefone').value;
-    const interesse = document.getElementById('interesse').value;
-    const mensagem = document.getElementById('mensagem').value;
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
 
-    const texto =
-        'Olá! Tenho interesse em participar do Mona Floripa Fashion.%0A%0A' +
-        '*Nome:* ' + nome + '%0A' +
-        '*Telefone:* ' + telefone + '%0A' +
-        '*Interesse:* ' + interesse + '%0A' +
-        '*Mensagem:* ' + mensagem;
+        const nome = document.getElementById('nome').value;
+        const telefone = document.getElementById('telefone').value;
+        const interesse = document.getElementById('interesse').value;
+        const mensagem = document.getElementById('mensagem').value;
 
-    const numeroWhatsApp = '5567992980699';
+        const texto =
+            'Olá! Tenho interesse em participar do Mona Floripa Fashion.%0A%0A' +
+            '*Nome:* ' + nome + '%0A' +
+            '*Telefone:* ' + telefone + '%0A' +
+            '*Interesse:* ' + interesse + '%0A' +
+            '*Mensagem:* ' + mensagem;
 
-    const url = 'https://wa.me/' + numeroWhatsApp + '?text=' + texto;
+        const numeroWhatsApp = '5567992980699';
 
-    window.location.href = url;
+        window.open(
+            'https://wa.me/' + numeroWhatsApp + '?text=' + texto,
+            '_blank'
+        );
+    });
 });
-
-});// Form Submit
+// Form Submit
         document.getElementById('contactForm').addEventListener('submit', (e) => {
             e.preventDefault();
             
