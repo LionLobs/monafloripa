@@ -1433,14 +1433,7 @@
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        // Form Submit
-        document.getElementById('contactForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Aqui você pode integrar com um serviço de email (EmailJS, Formspree, etc)
-            alert('Obrigado pelo seu interesse! Entraremos em contato em breve.');
-            e.target.reset();
-        });
+        
 
         // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1496,8 +1489,15 @@ Mensagem: ${mensagem}`;
     const url = `https://wa.me/${67992980699}?text=${encodeURIComponent(texto)}`;
 
     window.open(url, '_blank');
-});
 
+});// Form Submit
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Aqui você pode integrar com um serviço de email (EmailJS, Formspree, etc)
+            alert('Obrigado pelo seu interesse! Entraremos em contato em breve.');
+            e.target.reset();
+        });
     </script>
 </body>
 </html>
