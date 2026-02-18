@@ -259,7 +259,50 @@
     font-weight: 500;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
+/* ========== MARQUEE FASHION (TEXTO ROLANTE) ========== */
+.marquee-fashion {
+    width: 100%;
+    overflow: hidden;
+    background: transparent;
+    padding: 2.2rem 0;
+    position: relative;
+}
 
+/* linha de texto */
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 22s linear infinite;
+}
+
+/* texto */
+.marquee-track span {
+    font-family: 'Playfair Display', serif; /* elegante */
+    font-size: 1.4rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.45);
+    margin-right: 4rem;
+    white-space: nowrap;
+}
+
+/* animação */
+@keyframes marquee-scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* ajuste mobile */
+@media (max-width: 768px) {
+    .marquee-track span {
+        font-size: 1.1rem;
+        letter-spacing: 0.25em;
+    }
+}
 .cta-button {
     display: inline-block;
     padding: 1.2rem 3.5rem;
