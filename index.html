@@ -1376,24 +1376,6 @@
             });
         });
 
-        // Preload hero video com tratamento de erro
-        const heroVideo = document.querySelector('.hero-video');
-        if (heroVideo) {
-            heroVideo.load();
-            
-            // Tratamento de erro de carregamento
-            heroVideo.addEventListener('error', function() {
-                console.warn('Vídeo falhou ao carregar. Usando imagem de fallback.');
-                heroVideo.style.display = 'none';
-            });
-            
-            // Verificar carregamento após 5 segundos
-            setTimeout(() => {
-                if (heroVideo.readyState === 0) {
-                    console.warn('Vídeo não carregou. Possível problema de rede.');
-                }
-            }, 5000);
-        }
     </script>
 </body>
 </html>
