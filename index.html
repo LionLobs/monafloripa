@@ -162,6 +162,13 @@
     height: 100%;
     object-fit: cover;
     z-index: -1;
+
+    /* evita clique / player do iOS */
+    pointer-events: none;
+
+    /* melhora performance no mobile */
+    will-change: transform;
+    backface-visibility: hidden;
 }
 
         .hero-overlay {
@@ -1125,7 +1132,8 @@
        loop
        playsinline
        preload="metadata">
-       
+       poster="videofundo.mp4">
+    
     <source src="videofundo.mp4" type="video/mp4">
     Seu navegador não suporta vídeo.
 </video>
