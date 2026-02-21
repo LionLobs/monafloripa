@@ -41,12 +41,11 @@ const Sobre = () => {
           </h2>
           <div className="line-gold mb-8" />
           <p className="text-verde-petroleo/85 leading-relaxed max-w-[850px] mx-auto font-elegant text-[1.1rem]">
-            O Mona Floripa Fashion nasce como vitrine estratégica da moda catarinense, unindo marcas,
-            profissionais e criadores em uma experiência exclusiva à beira-mar.
+            O Mona Floripa Fashion nasce para destacar o melhor 
+da moda catarinense em um ambiente elegante, contemporâneo e estrategicamente pensado para gerar visibilidade real e conexões relevantes.
           </p>
           <p className="text-verde-petroleo/85 leading-relaxed max-w-[850px] mx-auto mt-4 font-elegant text-[1.1rem]">
-            Mais do que um desfile, é um encontro de negócios, posicionamento e construção de valor —
-            na paisagem única da Praia da Joaquina.
+            Reunindo marcas catarinenses, influenciadores, empresários e um público altamente qualificado, o evento se consolida como uma vitrine poderosa para marcas que buscam posicionamento, autoridade e conexão com consumidores de alto valor.
           </p>
         </motion.div>
 
