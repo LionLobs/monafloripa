@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import joaquinaImg from "@/assets/img/joaquina.jpg";
+import joaquinaImg from "@/assets/img/joaquina.jpeg";
 
 const details = [
   { label: "Local", value: "Mona Beach Club" },
