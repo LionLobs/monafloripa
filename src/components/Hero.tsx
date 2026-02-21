@@ -33,12 +33,7 @@ const Hero = () => {
           transition={{ duration: 1, delay: 0.3 }}
           className="flex flex-col items-center gap-3"
         >
-          <p
-            className="text-[0.85rem] md:text-[1rem] tracking-[0.3em] uppercase text-primary font-sans font-normal"
-            style={{ textShadow: "0 2px 10px rgba(0,0,0,0.3)" }}
-          >
-            Moda • Estratégia • Posicionamento
-          </p>
+         
 
           {/* Logo centralizada */}
           <div className="flex justify-center items-center my-2">
@@ -50,10 +45,10 @@ const Hero = () => {
           </div>
 
           <p
-            className="text-[1.1rem] md:text-[1.3rem] font-light leading-[1.4] max-w-[800px] text-off-white mt-2"
-            style={{ textShadow: "0 2px 15px rgba(0,0,0,0.4)" }}
+            className="text-[0.85rem] md:text-[1rem] tracking-[0.3em] uppercase text-primary font-sans font-normal"
+            style={{ textShadow: "0 2px 10px rgba(0,0,0,0.3)" }}
           >
-            Moda é posicionamento, estratégia e construção de valor
+            Moda • Estratégia • Posicionamento
           </p>
           <p
             className="text-[1.2rem] md:text-[1.5rem] font-elegant font-medium text-off-white mb-6"
