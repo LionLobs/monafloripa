@@ -153,7 +153,7 @@
             position: relative;
             overflow: hidden;
             background: linear-gradient(135deg, rgba(1, 42, 48, 0.85), rgba(63, 181, 168, 0.75)), 
-                        url('images/evento_1.png') center/cover no-repeat;
+                        url('videofundo.mp4') center/cover no-repeat;
         }
 .hero-video {
     position: absolute;
@@ -724,8 +724,7 @@
         text-align: center;
     }
 }
-
-    /* ========== PARCEIROS SECTION ========== */
+/* ========== PARCEIROS SECTION ========== */
 .parceiros {
     padding: 8rem 2rem;
     background: var(--off-white);
@@ -743,8 +742,7 @@
     background: linear-gradient(90deg, transparent, var(--verde-aquoso), transparent);
 }
 
-/* ===== NOVO SLIDER ===== */
-
+/* ===== SLIDER E FADE LATERAL ===== */
 .parceiros-slider {
     width: 100%;
     overflow: hidden;
@@ -752,7 +750,6 @@
     position: relative;
 }
 
-/* Fade elegante nas laterais */
 .parceiros-slider::before,
 .parceiros-slider::after {
     content: "";
@@ -781,8 +778,7 @@
     animation: scrollParceiros 40s linear infinite;
 }
 
-/* ===== CARDS ===== */
-
+/* ===== CARDS DOS PARCEIROS ===== */
 .parceiro-card {
     flex: 0 0 auto;
     width: 200px;
@@ -810,10 +806,6 @@
     transition: left 0.6s ease;
 }
 
-.parceiro-card:hover::before {
-    left: 100%;
-}
-
 .parceiro-card:hover {
     border-color: var(--verde-aquoso);
     transform: translateY(-8px);
@@ -821,41 +813,37 @@
                 0 8px 20px rgba(63, 181, 168, 0.1);
 }
 
-/* ===== LOGOS ===== */
+.parceiro-card:hover::before {
+    left: 100%;
+}
 
+/* ===== LOGOS (AJUSTADO: SEM PRETO E BRANCO) ===== */
 .parceiro-card img {
     max-width: 80%;
     max-height: 70%;
     object-fit: contain;
-    filter: grayscale(100%);
-    opacity: 0.75;
+    filter: none;       /* Removido grayscale(100%) */
+    opacity: 1;         /* Aumentado de 0.75 para 1 para cor total */
     transition: 0.4s ease;
 }
 
 .parceiro-card:hover img {
-    filter: grayscale(0%);
+    filter: none;       /* Garante que continue colorido no hover */
     opacity: 1;
+    transform: scale(1.05); /* Leve zoom ao passar o mouse */
 }
 
-/* ===== ANIMAÇÃO INFINITA ===== */
-
+/* ===== ANIMAÇÃO E RESPONSIVO ===== */
 @keyframes scrollParceiros {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
-
-/* ===== RESPONSIVO ===== */
 
 @media (max-width: 768px) {
     .parceiro-card {
         width: 160px;
         height: 120px;
     }
-
     .parceiros-track {
         gap: 2.5rem;
         animation: scrollParceiros 30s linear infinite;
@@ -1194,17 +1182,19 @@
     <!-- ========== HERO SECTION COM VÍDEO ========== -->
     <section class="hero">
         <!-- Vídeo de fundo - Ondas do mar suaves -->
-<video
-    class="hero-video"
-    autoplay
-    muted
-    loop
-    playsinline
-    webkit-playsinline
-    disablepictureinpicture
-    aria-hidden="true">
-    <source src="videofundo.mp4" type="video/mp4">
-</video>
+  <video
+        class="hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        webkit-playsinline
+        disablepictureinpicture
+        aria-hidden="true">
+        <source src="videofundo.mp4" type="video/mp4">
+        Seu navegador não suporta vídeos.
+    </video>
         <div class="hero-overlay"></div>
 
        <div class="hero-content">
@@ -1215,7 +1205,7 @@
     </h1>
  <p class="hero-subtitle">Moda • Estratégia • Posicionamento</p> <br>
    
-    <p class="hero-date">12 de março • Praia da Joaquina</p>
+    <p class="hero-date">12 de março • Mona Beach Club</p>
     
     <a href="#contato" class="cta-button">Garanta Sua Presença</a>
 </div>
@@ -1246,7 +1236,7 @@
 
                 </p>
                 <p class="section-description">
-                   Reunindo marcas patrocinadoras, influenciadores, empresários e um público altamente qualificado, o evento se consolida como uma vitrine poderosa para marcas que buscam posicionamento, autoridade e conexão com consumidores de alto valor.
+                   Reunindo marcas catarinenses, influenciadores, empresários e um público altamente qualificado, o evento se consolida como uma vitrine poderosa para marcas que buscam posicionamento, autoridade e conexão com consumidores de alto valor.
                 </p>
             </div>
             <div class="sobre-content">
@@ -1302,7 +1292,7 @@
     <div class="container">
         <div class="section-header fade-in">
             <p class="section-subtitle">O Local</p>
-            <h2 class="section-title">Praia da Joaquina</h2>
+            <h2 class="section-title">Mona Beach Club</h2>
         </div>
         <div class="local-content">
             <div class="local-image fade-in">
@@ -1321,7 +1311,7 @@
                     <p><strong>Local:</strong> Mona Beach Club</p>
                     <p><strong>Endereço:</strong> Praia da Joaquina, Florianópolis - SC</p>
                     <p><strong>Data:</strong> 12 de março de 2026</p>
-                    <p><strong>Horário:</strong> A partir das 18h</p>
+                    <p><strong>Horário:</strong> A partir das 13h</p>
                 </div>
             </div>
         </div>
@@ -1334,7 +1324,7 @@
             <div class="section-header fade-in">
                 <br>
                 <p class="section-subtitle">Nossos Parceiros</p>
-                <h2 class="section-title">Marcas Patrocinadoras</h2>
+                <h2 class="section-title">Patrocinadores</h2>
                 <p class="section-description">
                     Conectamos marcas de moda que entendem posicionamento como estratégia de crescimento com um público qualificado e influenciadores estratégicos.
                 </p>
@@ -1344,26 +1334,26 @@
     <div class="parceiros-track">
 
         <!-- 9 PARCEIROS -->
-        <div class="parceiro-card"><img src="img/logo1.png" alt="Parceiro 1"></div>
-        <div class="parceiro-card"><img src="img/logo2.png" alt="Parceiro 2"></div>
-        <div class="parceiro-card"><img src="img/logo3.png" alt="Parceiro 3"></div>
-        <div class="parceiro-card"><img src="img/logo4.png" alt="Parceiro 4"></div>
-        <div class="parceiro-card"><img src="img/logo5.png" alt="Parceiro 5"></div>
-        <div class="parceiro-card"><img src="img/logo6.png" alt="Parceiro 6"></div>
-        <div class="parceiro-card"><img src="img/logo7.png" alt="Parceiro 7"></div>
-        <div class="parceiro-card"><img src="img/logo8.png" alt="Parceiro 8"></div>
-        <div class="parceiro-card"><img src="img/logo9.png" alt="Parceiro 9"></div>
+        <div class="parceiro-card"><img src="logo1.png" alt="Parceiro 1"></div>
+        <div class="parceiro-card"><img src="logo2.jpeg" alt="Parceiro 2"></div>
+        <div class="parceiro-card"><img src="logo3.png" alt="Parceiro 3"></div>
+        <div class="parceiro-card"><img src="logo4.png" alt="Parceiro 4"></div>
+        <div class="parceiro-card"><img src="logo5.png" alt="Parceiro 5"></div>
+        <div class="parceiro-card"><img src="logo6.png" alt="Parceiro 6"></div>
+        <div class="parceiro-card"><img src="logo7.png" alt="Parceiro 7"></div>
+        <div class="parceiro-card"><img src="logo8.png" alt="Parceiro 8"></div>
+        <div class="parceiro-card"><img src="logo9.png" alt="Parceiro 9"></div>
 
         <!-- DUPLICAÇÃO PARA LOOP -->
-        <div class="parceiro-card"><img src="img/logo1.png" alt="Parceiro 1"></div>
-        <div class="parceiro-card"><img src="img/logo2.png" alt="Parceiro 2"></div>
-        <div class="parceiro-card"><img src="img/logo3.png" alt="Parceiro 3"></div>
-        <div class="parceiro-card"><img src="img/logo4.png" alt="Parceiro 4"></div>
-        <div class="parceiro-card"><img src="img/logo5.png" alt="Parceiro 5"></div>
-        <div class="parceiro-card"><img src="img/logo6.png" alt="Parceiro 6"></div>
-        <div class="parceiro-card"><img src="img/logo7.png" alt="Parceiro 7"></div>
-        <div class="parceiro-card"><img src="img/logo8.png" alt="Parceiro 8"></div>
-        <div class="parceiro-card"><img src="img/logo9.png" alt="Parceiro 9"></div>
+        <div class="parceiro-card"><img src="logo1.png" alt="Parceiro 1"></div>
+        <div class="parceiro-card"><img src="logo2.jpeg" alt="Parceiro 2"></div>
+        <div class="parceiro-card"><img src="logo3.png" alt="Parceiro 3"></div>
+        <div class="parceiro-card"><img src="logo4.png" alt="Parceiro 4"></div>
+        <div class="parceiro-card"><img src="logo5.png" alt="Parceiro 5"></div>
+        <div class="parceiro-card"><img src="logo6.png" alt="Parceiro 6"></div>
+        <div class="parceiro-card"><img src="logo7.png" alt="Parceiro 7"></div>
+        <div class="parceiro-card"><img src="logo8.png" alt="Parceiro 8"></div>
+        <div class="parceiro-card"><img src="logo9.png" alt="Parceiro 9"></div>
 
     </div>
 </div>
