@@ -48,7 +48,7 @@ const Roteiro = () => {
           {/* Lado Direito: Imagem Celular */}
           <div className="max-w-[250px] md:max-w-[300px]">
             <img 
-              src="celular.png" 
+              src="/celular.png" 
               alt="Celular Roteiro" 
               className="w-full h-auto object-contain"
             />
