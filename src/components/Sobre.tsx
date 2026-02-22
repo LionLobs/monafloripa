@@ -1,54 +1,82 @@
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
 import { useRef } from "react";
-
-const cards = [
-  {
-    icon: "✦",
-    title: "Conexão Real",
-    description: "Conectamos marcas de moda catarinenses com influenciadores, imprensa e um público estratégico que gera crescimento real e resultados mensuráveis.",
-  },
-  {
-    icon: "◆",
-    title: "Visibilidade Estratégica",
-    description: "Cada marca terá destaque no desfile com 6 looks, stands personalizados e cobertura profissional completa do evento.",
-  },
-  {
-    icon: "✧",
-    title: "Mercado & Negócios",
-    description: "Um evento focado em resultados: networking qualificado, posicionamento de marca e geração de oportunidades comerciais concretas.",
-  },
-];
 
 const Sobre = () => {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
+  const inView = useInView(ref, { once: true, amount: 0.2 });
+
+  const cards = [
+    {
+      title: "Moda",
+      icon: "✨",
+      description: "Curadoria exclusiva do que há de mais sofisticado no cenário catarinense.",
+    },
+    {
+      title: "Estratégia",
+      icon: "📈",
+      description: "Posicionamento de marca desenhado para atrair o público certo.",
+    },
+    {
+      title: "Conexão",
+      icon: "🤝",
+      description: "Networking de alto nível entre empresários e influenciadores.",
+    },
+  ];
 
   return (
-    <section id="sobre" className="py-32 px-8 bg-off-white relative" ref={ref}>
-      {/* Divider line */}
-      <div className="section-divider absolute top-0 left-0" />
+    <section id="sobre" className="section-padding bg-off-white overflow-hidden" ref={ref}>
+      <div className="container mx-auto">
+        {/* Bloco de Apresentação: Imagem + Texto */}
+        <div className="flex flex-col md:flex-row items-center gap-10 lg:gap-20 mb-20">
+          
+          {/* Lado Esquerdo: Imagem da Modelo */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="w-full md:w-1/2 lg:w-2/5"
+          >
+            <div className="relative">
+              {/* Moldura decorativa sutil usando as cores do seu CSS */}
+              <div className="absolute -top-4 -left-4 w-full h-full border border-primary/20 -z-10" />
+              <img 
+                src="/modelo-sobre.jpg" // CERTIFIQUE-SE DE TER ESSA IMAGEM NA PASTA PUBLIC
+                alt="Mona Floripa Fashion" 
+                className="w-full h-auto shadow-2xl rounded-sm object-cover"
+                style={{ maxHeight: '650px' }}
+              />
+            </div>
+          </motion.div>
 
-      <div className="max-w-[1200px] mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <p className="text-[0.9rem] tracking-[0.3em] uppercase text-primary mb-4 font-sans font-medium">Moda • Estratégia • Posicionamento</p>
-          <h2 className="heading-section text-verde-petroleo mb-6">
-            O Evento
-          </h2>
-          <div className="line-gold mb-8" />
-          <p className="text-verde-petroleo/85 leading-relaxed max-w-[850px] mx-auto font-elegant text-[1.1rem]">
-            O Mona Floripa Fashion nasce para destacar o melhor 
-da moda catarinense em um ambiente elegante, contemporâneo e estrategicamente pensado para gerar visibilidade real e conexões relevantes.
-          </p>
-          <p className="text-verde-petroleo/85 leading-relaxed max-w-[850px] mx-auto mt-4 font-elegant text-[1.1rem]">
-            Reunindo marcas catarinenses, influenciadores, empresários e um público altamente qualificado, o evento se consolida como uma vitrine poderosa para marcas que buscam posicionamento, autoridade e conexão com consumidores de alto valor.
-          </p>
-        </motion.div>
+          {/* Lado Direito: Textos (Sua estrutura original preservada) */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="w-full md:w-1/2 lg:w-3/5 text-center md:text-left"
+          >
+            <p className="text-[0.9rem] tracking-[0.3em] uppercase text-primary mb-4 font-sans font-medium">
+              Moda • Estratégia • Posicionamento
+            </p>
+            <h2 className="heading-section text-verde-petroleo mb-6">
+              O Evento
+            </h2>
+            <div className="line-gold mb-8 md:mx-0" />
+            
+            <div className="space-y-6">
+              <p className="text-verde-petroleo/85 leading-relaxed font-elegant text-[1.1rem]">
+                O Mona Floripa Fashion nasce para destacar o melhor 
+                da moda catarinense em um ambiente elegante, contemporâneo e estrategicamente pensado para gerar visibilidade real e conexões relevantes.
+              </p>
+              <p className="text-verde-petroleo/85 leading-relaxed font-elegant text-[1.1rem]">
+                Reunindo marcas catarinenses, influenciadores, empresários e um público altamente qualificado, o evento se consolida como uma vitrine poderosa para marcas que buscam posicionamento, autoridade e conexão com consumidores de alto valor.
+              </p>
+            </div>
+          </motion.div>
+        </div>
 
+        {/* Grid de Cards (Seu código original preservado) */}
         <div className="grid md:grid-cols-3 gap-12">
           {cards.map((card, i) => (
             <motion.div
