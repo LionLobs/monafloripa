@@ -1,62 +1,59 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+
+const cards = [
+  {
+    icon: "✦",
+    title: "Conexão Real",
+    description: "Networking estratégico entre marcas, influenciadores e profissionais da moda catarinense.",
+  },
+  {
+    icon: "◆",
+    title: "Visibilidade Estratégica",
+    description: "Exposição qualificada em um dos cenários mais icônicos de Florianópolis.",
+  },
+  {
+    icon: "✧",
+    title: "Mercado & Negócios",
+    description: "Um espaço pensado para gerar negócios reais e posicionar sua marca com autoridade.",
+  },
+];
 
 const Sobre = () => {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, amount: 0.2 });
-
-  const cards = [
-    {
-      title: "Exclusividade",
-      // Substitua a <div> abaixo pelo ícone (SVG ou Componente) da sua ID Visual
-      icon: "✦" <div className="w-12 h-12 bg-primary/10 rounded-full mx-auto" />, 
-      description: "Evento fechado, apenas por convite. Uma experiência curada para convidados selecionados que buscam conexões autênticas e networking de alto nível.",
-    },
-    {
-      title: "Estratégia",
-      icon:"◆" <div className="w-12 h-12 bg-primary/10 rounded-full mx-auto" />, 
-      description: "Um ambiente estratégico de relacionamento, visibilidade e autoridade, conectando moda, lifestyle, negócios e experiência sensorial.",
-    },
-    {
-      title: "Sofisticação",
-      icon: "✧" <div className="w-12 h-12 bg-primary/10 rounded-full mx-auto" />, 
-      description: "Cada detalhe é pensado para proporcionar uma experiência premium, do tapete vermelho aos quiosques personalizados de patrocinadores.",
-    },
-  ];
+  const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="sobre" className="section-padding bg-off-white overflow-hidden" ref={ref}>
-      <div className="container mx-auto">
+    <section id="sobre" className="py-32 px-8 bg-off-white relative" ref={ref}>
+      {/* Divider line */}
+      <div className="section-divider absolute top-0 left-0" />
+
+      <div className="max-w-[1200px] mx-auto">
         
-        {/* Bloco Superior: Imagem da Modelo + Textos */}
-        <div className="flex flex-col md:flex-row items-center gap-10 lg:gap-20 mb-24">
+        {/* Container Flex para Imagem + Texto */}
+        <div className="flex flex-col md:flex-row items-center gap-10 lg:gap-16 mb-24">
           
           {/* Lado Esquerdo: Imagem da Modelo */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="w-full md:w-1/2 lg:w-2/5"
+            className="w-full md:w-1/2"
           >
-            <div className="relative">
-              {/* Detalhe decorativo sutil atrás da imagem */}
-              <div className="absolute -top-4 -left-4 w-full h-full border border-primary/20 -z-10" />
-              <img 
-                src="/modelo-sobre.PNG" // Nome do arquivo na sua pasta public
-                alt="Modelo Mona Floripa" 
-                className="w-full h-auto shadow-2xl rounded-sm object-cover border-l-4 border-primary"
-                style={{ maxHeight: '600px' }}
-              />
-            </div>
+            <img 
+              src="/modelo-sobre.jpg" // Substitua pelo caminho da sua imagem
+              alt="Modelo Mona Floripa"
+              className="w-full h-auto shadow-2xl rounded-sm object-cover border-l-4 border-primary"
+              style={{ maxHeight: '550px' }}
+            />
           </motion.div>
 
-          {/* Lado Direito: Textos adaptados */}
+          {/* Lado Direito: Seus Textos Originais */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="w-full md:w-1/2 lg:w-3/5 text-center md:text-left"
+            className="w-full md:w-1/2 text-center md:text-left"
           >
             <p className="text-[0.9rem] tracking-[0.3em] uppercase text-primary mb-4 font-sans font-medium">
               Moda • Estratégia • Posicionamento
@@ -66,19 +63,18 @@ const Sobre = () => {
             </h2>
             <div className="line-gold mb-8 md:mx-0" />
             
-            <div className="space-y-6">
-              <p className="text-verde-petroleo/85 leading-relaxed font-elegant text-[1.1rem] max-w-[850px] mx-auto md:mx-0">
-                O Mona Floripa Fashion nasce para destacar o melhor 
-                da moda catarinense em um ambiente elegante, contemporâneo e estrategicamente pensado para gerar visibilidade real e conexões relevantes.
-              </p>
-              <p className="text-verde-petroleo/85 leading-relaxed font-elegant text-[1.1rem] max-w-[850px] mx-auto md:mx-0">
-                Reunindo marcas catarinenses, influenciadores, empresários e um público altamente qualificado, o evento se consolida como uma vitrine poderosa para marcas que buscam posicionamento, autoridade e conexão com consumidores de alto valor.
-              </p>
-            </div>
+            <p className="text-verde-petroleo/85 leading-relaxed font-elegant text-[1.1rem]">
+              O Mona Floripa Fashion nasce como vitrine estratégica da moda catarinense, unindo marcas,
+              profissionais e criadores em uma experiência exclusiva à beira-mar.
+            </p>
+            <p className="text-verde-petroleo/85 leading-relaxed mt-4 font-elegant text-[1.1rem]">
+              Mais do que um desfile, é um encontro de negócios, posicionamento e construção de valor —
+              na paisagem única da Praia da Joaquina.
+            </p>
           </motion.div>
         </div>
 
-        {/* Grid de Cards (Seu estilo original) */}
+        {/* Seus Cards Originais (Mantidos exatamente como antes) */}
         <div className="grid md:grid-cols-3 gap-12">
           {cards.map((card, i) => (
             <motion.div
@@ -88,15 +84,11 @@ const Sobre = () => {
               transition={{ duration: 0.6, delay: 0.2 + i * 0.15 }}
               className="card-sobre text-center"
             >
-              <div className="text-primary mb-6 flex justify-center">
+              <span className="text-[3.5rem] text-primary mb-6 block leading-none" style={{ filter: "drop-shadow(0 2px 5px rgba(63,181,168,0.3))" }}>
                 {card.icon}
-              </div>
-              <h3 className="font-elegant text-[2rem] font-semibold text-verde-petroleo mb-4">
-                {card.title}
-              </h3>
-              <p className="text-verde-petroleo/85 text-base leading-[1.8]">
-                {card.description}
-              </p>
+              </span>
+              <h3 className="font-elegant text-[2rem] font-semibold text-verde-petroleo mb-4">{card.title}</h3>
+              <p className="text-verde-petroleo/85 text-base leading-[1.8]">{card.description}</p>
             </motion.div>
           ))}
         </div>
