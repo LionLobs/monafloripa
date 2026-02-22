@@ -1,19 +1,20 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { Sparkles, Diamond, Star } from "lucide-react"; // Ícones elegantes e finos
 
 const cards = [
   {
-    icon: "✦",
+    icon: <Sparkles size={42} strokeWidth={1} />,
     title: "Conexão Real",
     description: "Conectamos marcas de moda catarinenses com influenciadores, imprensa e um público estratégico que gera crescimento real e resultados mensuráveis.",
   },
   {
-    icon: "◆",
+    icon: <Diamond size={42} strokeWidth={1} />,
     title: "Visibilidade Estratégica",
     description: "Cada marca terá destaque no desfile com 6 looks, stands personalizados e cobertura profissional completa do evento.",
   },
   {
-    icon: "✧",
+    icon: <Star size={42} strokeWidth={1} />,
     title: "Mercado & Negócios",
     description: "Um evento focado em resultados: networking qualificado, posicionamento de marca e geração de oportunidades comerciais concretas.",
   },
@@ -79,7 +80,7 @@ const Sobre = () => {
           </motion.div>
         </div>
 
-        {/* Seus Cards Originais com ícones ✦, ◆, ✧ */}
+        {/* Cards com ícones refinados */}
         <div className="grid md:grid-cols-3 gap-12">
           {cards.map((card, i) => (
             <motion.div
@@ -87,9 +88,9 @@ const Sobre = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 + i * 0.15 }}
-              className="card-sobre text-center"
+              className="card-sobre text-center flex flex-col items-center"
             >
-              <span className="text-[3.5rem] text-primary mb-6 block leading-none" style={{ filter: "drop-shadow(0 2px 5px rgba(63,181,168,0.3))" }}>
+              <span className="text-primary mb-6 block leading-none" style={{ filter: "drop-shadow(0 2px 5px rgba(63,181,168,0.3))" }}>
                 {card.icon}
               </span>
               <h3 className="font-elegant text-[2rem] font-semibold text-verde-petroleo mb-4">
