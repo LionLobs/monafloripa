@@ -19,9 +19,9 @@ const faqData = [
 ];
 
 const steps = [
-  { num: "01", title: "Recepção", description: "Welcome drinks, networking e ambientação à beira-mar com DJ set." },
-  { num: "02", title: "Desfile", description: "Passarela com marcas selecionadas e curadoria de moda catarinense." },
-  { num: "03", title: "Sunset", description: "Encerramento com pôr do sol, música ao vivo e experiência premium." },
+  { num: "01", title: "Recepção", description: "Experiência de tapete vermelho para os convidados, com fotos profissionais na chegada, degustações, stands com exposição das marcas patrocinadoras e/ou apoiadoras" },
+  { num: "02", title: "Desfile", description: "O desfile do Mona Floripa Fashion apresenta 6 looks por marca. Se o tempo permitir, teremos uma ação especial diretamente na areia da Praia da Joaquina." },
+  { num: "03", title: "Sunset", description: "O espaço do Mona Beach Club fica aberto para networking e consumação, em um momento único para conexões reais entre marcas, influencers e convidados exclusivos da moda catarinense." },
 ];
 
 const Roteiro = () => {
