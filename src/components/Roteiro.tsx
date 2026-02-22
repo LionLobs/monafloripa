@@ -25,36 +25,38 @@ const Roteiro = () => {
 
   return (
     <section id="roteiro" className="py-16 px-6 gradient-experience relative text-off-white" ref={ref}>
-      {/* Texture */}
       <div className="texture-overlay" />
 
       <div className="max-w-[1200px] mx-auto relative z-10">
         
-        {/* Cabeçalho com Celular em destaque ao lado */}
+        {/* Container do Cabeçalho - Ajustado para efeito 'grudado' */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          initial={{ opacity: 0, x: -20 }}
+          animate={inView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="flex flex-row items-center justify-center gap-4 md:gap-8 mb-12"
+          className="flex flex-row items-center justify-center mb-12 relative"
         >
-          <div className="text-left">
+          {/* Bloco de Texto */}
+          <div className="text-left z-20">
             <p className="text-[0.8rem] md:text-[0.9rem] tracking-[0.2em] uppercase text-primary font-sans font-medium"
                style={{ textShadow: "0 1px 5px rgba(0,0,0,0.3)" }}>
               Programação
             </p>
-            <h2 className="heading-section text-off-white text-[2.8rem] md:text-[4.5rem] leading-tight"
+            <h2 className="heading-section text-off-white text-[3rem] md:text-[5rem] leading-none"
                 style={{ textShadow: "0 2px 15px rgba(0,0,0,0.4)" }}>
               Roteiro
             </h2>
             <div className="line-gold mt-2 w-16 md:w-24" />
           </div>
 
-          {/* Imagem do Celular - Tamanho Grande e Colada ao Texto */}
-          <div className="w-40 md:w-64 flex-shrink-0">
-            <img 
+          {/* Imagem do Celular - Com margem negativa para grudar no texto */}
+          <div className="w-44 md:w-72 flex-shrink-0 -ml-6 md:-ml-12 z-10 pointer-events-none">
+            <motion.img 
               src="/celular.png" 
               alt="Celular Roteiro" 
-              className="w-full h-auto object-contain drop-shadow-2xl"
+              className="w-full h-auto object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             />
           </div>
         </motion.div>
