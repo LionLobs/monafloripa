@@ -33,14 +33,26 @@ const Roteiro = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="flex flex-col md:flex-row items-center justify-center gap-8 mb-16 text-center md:text-left"
         >
-          <p className="text-[0.9rem] tracking-[0.2em] uppercase text-primary mb-4 font-sans font-medium"
-             style={{ textShadow: "0 1px 5px rgba(0,0,0,0.3)" }}>Programação</p>
-          <h2 className="heading-section text-off-white" style={{ textShadow: "0 2px 15px rgba(0,0,0,0.4)" }}>
-            Roteiro
-          </h2>
-          <div className="line-gold mt-6" />
+          {/* Lado Esquerdo: Textos */}
+          <div className="flex flex-col items-center md:items-start">
+            <p className="text-[0.9rem] tracking-[0.2em] uppercase text-primary mb-4 font-sans font-medium"
+               style={{ textShadow: "0 1px 5px rgba(0,0,0,0.3)" }}>Programação</p>
+            <h2 className="heading-section text-off-white" style={{ textShadow: "0 2px 15px rgba(0,0,0,0.4)" }}>
+              Roteiro
+            </h2>
+            <div className="line-gold mt-6" />
+          </div>
+
+          {/* Lado Direito: Imagem Celular */}
+          <div className="max-w-[250px] md:max-w-[300px]">
+            <img 
+              src="celular.png" 
+              alt="Celular Roteiro" 
+              className="w-full h-auto object-contain"
+            />
+          </div>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-12 mt-16">
