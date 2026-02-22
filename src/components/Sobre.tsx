@@ -44,7 +44,7 @@ const Sobre = () => {
               {/* Moldura sutil usando sua cor primary */}
               <div className="absolute -top-4 -left-4 w-full h-full border border-primary/20 -z-10" />
               <img 
-                src="sr/assets/img/modelo-sobre.PNG" 
+                src="modelo-sobre.PNG" 
                 alt="Mona Floripa Fashion" 
                 className="w-full h-auto shadow-2xl rounded-sm object-cover border-l-4 border-primary"
                 style={{ maxHeight: '600px' }}
