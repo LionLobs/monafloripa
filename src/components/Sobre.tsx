@@ -5,17 +5,17 @@ const cards = [
   {
     icon: "✦",
     title: "Conexão Real",
-    description: "Networking estratégico entre marcas, influenciadores e profissionais da moda catarinense.",
+    description: "Conectamos marcas de moda catarinenses com influenciadores, imprensa e um público estratégico que gera crescimento real e resultados mensuráveis.",
   },
   {
     icon: "◆",
     title: "Visibilidade Estratégica",
-    description: "Exposição qualificada em um dos cenários mais icônicos de Florianópolis.",
+    description: "Cada marca terá destaque no desfile com 6 looks, stands personalizados e cobertura profissional completa do evento.",
   },
   {
     icon: "✧",
     title: "Mercado & Negócios",
-    description: "Um espaço pensado para gerar negócios reais e posicionar sua marca com autoridade.",
+    description: "Um evento focado em resultados: networking qualificado, posicionamento de marca e geração de oportunidades comerciais concretas.",
   },
 ];
 
