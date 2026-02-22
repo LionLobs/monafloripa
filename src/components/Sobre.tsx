@@ -41,7 +41,7 @@ const Sobre = () => {
               {/* Moldura decorativa sutil usando as cores do seu CSS */}
               <div className="absolute -top-4 -left-4 w-full h-full border border-primary/20 -z-10" />
               <img 
-                src="/modelo-sobre.jpg" // CERTIFIQUE-SE DE TER ESSA IMAGEM NA PASTA PUBLIC
+                src="/modelo-sobre.PNG" // CERTIFIQUE-SE DE TER ESSA IMAGEM NA PASTA PUBLIC
                 alt="Mona Floripa Fashion" 
                 className="w-full h-auto shadow-2xl rounded-sm object-cover"
                 style={{ maxHeight: '650px' }}
