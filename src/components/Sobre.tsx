@@ -43,7 +43,7 @@ const Sobre = () => {
               {/* Detalhe decorativo sutil atrás da imagem */}
               <div className="absolute -top-4 -left-4 w-full h-full border border-primary/20 -z-10" />
               <img 
-                src="/modelo-sobre.JPG" // Nome do arquivo na sua pasta public
+                src="/modelo-sobre.PNG" // Nome do arquivo na sua pasta public
                 alt="Modelo Mona Floripa" 
                 className="w-full h-auto shadow-2xl rounded-sm object-cover border-l-4 border-primary"
                 style={{ maxHeight: '600px' }}
