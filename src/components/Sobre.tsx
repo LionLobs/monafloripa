@@ -2,27 +2,23 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 
-const Sobre = () => {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, amount: 0.2 });
-
-  const cards = [
-    {
-      title: "Moda",
-      icon: "✨",
-      description: "Curadoria exclusiva do que há de mais sofisticado no cenário catarinense.",
-    },
-    {
-      title: "Estratégia",
-      icon: "📈",
-      description: "Posicionamento de marca desenhado para atrair o público certo.",
-    },
-    {
-      title: "Conexão",
-      icon: "🤝",
-      description: "Networking de alto nível entre empresários e influenciadores.",
-    },
-  ];
+const cards = [
+  {
+    icon: "✦",
+    title: "Conexão Real",
+    description: "Networking estratégico entre marcas, influenciadores e profissionais da moda catarinense.",
+  },
+  {
+    icon: "◆",
+    title: "Visibilidade Estratégica",
+    description: "Exposição qualificada em um dos cenários mais icônicos de Florianópolis.",
+  },
+  {
+    icon: "✧",
+    title: "Mercado & Negócios",
+    description: "Um espaço pensado para gerar negócios reais e posicionar sua marca com autoridade.",
+  },
+];
 
   return (
     <section id="sobre" className="section-padding bg-off-white overflow-hidden" ref={ref}>
