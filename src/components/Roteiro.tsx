@@ -2,19 +2,19 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
 import { MessageCircle, X, ChevronDown } from "lucide-react";
 
-// 1. Dados das Perguntas Frequentes
+// 1. Dados das Perguntas Frequentes Atualizados
 const faqData = [
   {
-    question: "Qual o dress code do evento?",
-    answer: "O traje sugerido é o 'Chic Resort' ou 'Beach Luxury', priorizando tons claros e tecidos leves que remetam à sofisticação à beira-mar."
+    question: "Onde será realizado o evento?",
+    answer: "O Mona Floripa Fashion acontecerá no exclusivo Mona Beach Club, um cenário paradisíaco à beira-mar em Florianópolis na praia da Joaquina."
   },
   {
-    question: "Onde será realizado o desfile?",
-    answer: "O Mona Floripa Fashion acontecerá em um local exclusivo à beira-mar em Florianópolis. O endereço exato é enviado via convite digital."
+    question: "Como faço para confirmar minha presença?",
+    answer: "A confirmação deve ser feita através do nosso sistema oficial. Utilize o link enviado em seu convite digital."
   },
   {
-    question: "Como faço para adquirir ingressos?",
-    answer: "O evento é exclusivo para convidados e marcas parceiras. Para solicitações de credenciamento, entre em contato via nossa aba de RSVP."
+    question: "Como faço pra ser um patrocinador?",
+    answer: "Entre em contato no final do site e saiba mais sobre nossos benefícios de ser um patrocinador. "
   }
 ];
 
@@ -28,12 +28,17 @@ const Roteiro = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
   
-  // Estados para controlar o Chat e qual FAQ está aberta
   const [showChat, setShowChat] = useState(false);
   const [activeFaq, setActiveFaq] = useState(null);
 
   const toggleFaq = (index) => {
     setActiveFaq(activeFaq === index ? null : index);
+  };
+
+  const handleWhatsAppClick = () => {
+    const phone = "5567992980699";
+    const message = encodeURIComponent("oii, vim pelo site e quero mais informações");
+    window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
   };
 
   return (
@@ -84,7 +89,7 @@ const Roteiro = () => {
         </div>
       </div>
 
-      {/* --- WIDGET DE IA E FAQ AUTOMÁTICO --- */}
+      {/* --- WIDGET DE IA E FAQ --- */}
       <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
         <AnimatePresence>
           {showChat && (
@@ -92,9 +97,8 @@ const Roteiro = () => {
               initial={{ opacity: 0, y: 20, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 20, scale: 0.9 }}
-              className="mb-4 w-[320px] md:w-[380px] bg-[#0a1a1a]/90 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-2xl overflow-hidden flex flex-col"
+              className="mb-4 w-[320px] md:w-[380px] bg-[#0a1a1a]/95 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-2xl overflow-hidden flex flex-col"
             >
-              {/* Header do Chat */}
               <div className="bg-primary p-4 text-black flex justify-between items-center">
                 <div>
                   <h4 className="font-bold text-sm">Mona Assistente Virtual</h4>
@@ -103,9 +107,8 @@ const Roteiro = () => {
                 <X size={20} className="cursor-pointer" onClick={() => setShowChat(false)} />
               </div>
 
-              {/* Área de Conteúdo / FAQ Automático */}
               <div className="p-4 max-h-[400px] overflow-y-auto custom-scrollbar">
-                <p className="text-xs text-primary mb-4 font-medium uppercase tracking-tighter">Dúvidas Frequentes</p>
+                <p className="text-xs text-primary mb-4 font-medium uppercase tracking-tighter">Informações Importantes</p>
                 
                 <div className="space-y-3">
                   {faqData.map((item, index) => (
@@ -137,8 +140,11 @@ const Roteiro = () => {
                 </div>
 
                 <div className="mt-6">
-                   <button className="w-full py-3 bg-white/5 border border-white/10 rounded-xl text-xs font-bold hover:bg-primary hover:text-black transition-all duration-300">
-                     CONVERSAR COM IA EM TEMPO REAL
+                   <button 
+                    onClick={handleWhatsAppClick}
+                    className="w-full py-3 bg-white/5 border border-white/10 rounded-xl text-xs font-bold hover:bg-primary hover:text-black transition-all duration-300 uppercase tracking-wider"
+                   >
+                     Conversar em tempo real
                    </button>
                 </div>
               </div>
@@ -146,12 +152,11 @@ const Roteiro = () => {
           )}
         </AnimatePresence>
 
-        {/* Botão de Disparo */}
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => setShowChat(!showChat)}
-          className="w-14 h-14 md:w-16 md:h-16 bg-primary rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(63,181,168,0.3)] group"
+          className="w-14 h-14 md:w-16 md:h-16 bg-primary rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(63,181,168,0.3)] group relative"
         >
           {showChat ? <X size={28} className="text-black" /> : <MessageCircle size={28} className="text-black group-hover:rotate-12 transition-transform" />}
           {!showChat && <span className="absolute inset-0 rounded-full bg-primary animate-ping opacity-25"></span>}
