@@ -8,20 +8,20 @@ const Sobre = () => {
 
   const cards = [
     {
-      title: "Moda",
+      title: "Exclusividade",
       // Substitua a <div> abaixo pelo ícone (SVG ou Componente) da sua ID Visual
-      icon: <div className="w-12 h-12 bg-primary/10 rounded-full mx-auto" />, 
-      description: "Curadoria exclusiva do que há de mais sofisticado no cenário catarinense.",
+      icon: "✦" <div className="w-12 h-12 bg-primary/10 rounded-full mx-auto" />, 
+      description: "Evento fechado, apenas por convite. Uma experiência curada para convidados selecionados que buscam conexões autênticas e networking de alto nível.",
     },
     {
       title: "Estratégia",
-      icon: <div className="w-12 h-12 bg-primary/10 rounded-full mx-auto" />, 
-      description: "Posicionamento de marca desenhado para atrair o público certo.",
+      icon:"◆" <div className="w-12 h-12 bg-primary/10 rounded-full mx-auto" />, 
+      description: "Um ambiente estratégico de relacionamento, visibilidade e autoridade, conectando moda, lifestyle, negócios e experiência sensorial.",
     },
     {
-      title: "Conexão",
-      icon: <div className="w-12 h-12 bg-primary/10 rounded-full mx-auto" />, 
-      description: "Networking de alto nível entre empresários e influenciadores.",
+      title: "Sofisticação",
+      icon: "✧" <div className="w-12 h-12 bg-primary/10 rounded-full mx-auto" />, 
+      description: "Cada detalhe é pensado para proporcionar uma experiência premium, do tapete vermelho aos quiosques personalizados de patrocinadores.",
     },
   ];
 
