@@ -24,55 +24,55 @@ const Roteiro = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="roteiro" className="py-32 px-8 gradient-experience relative text-off-white" ref={ref}>
-      {/* Texture */}
+    <section id="roteiro" className="py-16 px-6 gradient-experience relative text-off-white" ref={ref}>
       <div className="texture-overlay" />
 
       <div className="max-w-[1200px] mx-auto relative z-10">
+        
+        {/* Container Ultra Compacto: Texto e Imagem lado a lado */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="flex flex-col md:flex-row items-center justify-center gap-8 mb-16 text-center md:text-left"
+          className="flex flex-row items-center justify-center gap-4 mb-8"
         >
-          {/* Lado Esquerdo: Textos */}
-          <div className="flex flex-col items-center md:items-start">
-            <p className="text-[0.9rem] tracking-[0.2em] uppercase text-primary mb-4 font-sans font-medium"
-               style={{ textShadow: "0 1px 5px rgba(0,0,0,0.3)" }}>Programação</p>
-            <h2 className="heading-section text-off-white" style={{ textShadow: "0 2px 15px rgba(0,0,0,0.4)" }}>
+          <div className="text-left">
+            <p className="text-[0.8rem] tracking-[0.2em] uppercase text-primary font-sans font-medium">
+              Programação
+            </p>
+            <h2 className="heading-section text-off-white text-[2.5rem] md:text-[3.5rem] leading-tight">
               Roteiro
             </h2>
-            <div className="line-gold mt-6" />
+            <div className="line-gold mt-2 w-12" />
           </div>
 
-          {/* Lado Direito: Imagem Celular */}
-          <div className="max-w-[250px] md:max-w-[300px]">
+          {/* Imagem pequena e colada */}
+          <div className="w-20 md:w-32 flex-shrink-0">
             <img 
               src="/celular.png" 
-              alt="Celular Roteiro" 
+              alt="Celular" 
               className="w-full h-auto object-contain"
             />
           </div>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-12 mt-16">
+        {/* Grid de Cards com espaçamento reduzido */}
+        <div className="grid md:grid-cols-3 gap-6">
           {steps.map((step, i) => (
             <motion.div
               key={step.num}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 + i * 0.15 }}
-              className="card-roteiro"
+              transition={{ duration: 0.6, delay: 0.2 + i * 0.1 }}
+              className="card-roteiro p-6"
             >
-              <span className="font-elegant text-[5rem] font-bold text-primary leading-none mb-6 block opacity-70"
-                    style={{ textShadow: "0 4px 15px rgba(63,181,168,0.4)" }}>
+              <span className="font-elegant text-[3.5rem] font-bold text-primary leading-none mb-2 block opacity-70">
                 {step.num}
               </span>
-              <h3 className="font-elegant text-[2.2rem] font-semibold text-off-white mb-4"
-                  style={{ textShadow: "0 2px 10px rgba(0,0,0,0.3)" }}>
+              <h3 className="font-elegant text-[1.6rem] font-semibold text-off-white mb-2">
                 {step.title}
               </h3>
-              <p className="text-[1.05rem] leading-[1.8] text-off-white/90">{step.description}</p>
+              <p className="text-[0.9rem] leading-relaxed text-off-white/90">{step.description}</p>
             </motion.div>
           ))}
         </div>
