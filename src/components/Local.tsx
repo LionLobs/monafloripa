@@ -4,9 +4,9 @@ import joaquinaImg from "@/assets/img/joaquina.jpeg";
 
 const details = [
   { label: "Local", value: "Mona Beach Club" },
-  { label: "Endereço", value: "Praia da Joaquina, Florianópolis – SC" },
+  { label: "Endereço", value: "Praia da Joaquina, Florianópolis – SC " },
   { label: "Data", value: "12 de março de 2026" },
-  { label: "Horário", value: "13h" },
+  { label: "Horário", value: "15h" },
 ];
 
 const Local = () => {
