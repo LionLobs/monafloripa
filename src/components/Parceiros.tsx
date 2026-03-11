@@ -30,13 +30,6 @@ import logo27 from "@/assets/img/logo27.png";
 import logo28 from "@/assets/img/logo28.jpeg";
 import logo29 from "@/assets/img/logo29.png";
 import logo30 from "@/assets/img/logo30.png";
-import logo30 from "@/assets/img/logo31.png";
-import logo30 from "@/assets/img/logo32.png";
-import logo30 from "@/assets/img/logo33.png";
-import logo30 from "@/assets/img/logo34.png";
-import logo30 from "@/assets/img/logo35.png";
-import logo30 from "@/assets/img/logo36.png";
-import logo30 from "@/assets/img/logo37.png";
 
 const partnerLogos = [
   { src: logo1, alt: "Aperol" },
@@ -69,13 +62,6 @@ const partnerLogos = [
   { src: logo28, alt: "Parceiro 28" },
   { src: logo29, alt: "Parceiro 29" },
   { src: logo30, alt: "Parceiro 30" },
-  { src: logo31, alt: "Parceiro 31" },
-  { src: logo32, alt: "Parceiro 32" },
-  { src: logo33, alt: "Parceiro 33" },
-  { src: logo34, alt: "Parceiro 34" },
-  { src: logo35, alt: "Parceiro 35" },
-  { src: logo36, alt: "Parceiro 36" },
-  { src: logo37, alt: "Parceiro 37" },
 ];
 
 // Duplicate for seamless loop
